@@ -13,17 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('jobs', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
-            $table->integer('category_id');
-            $table->string('title');
-            $table->text('description');
-            $table->string('salary');
-            $table->string('position');
-            $table->string('phone');
-            $table->string('address');
-            $table->string('type');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -35,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jobs');
+        Schema::dropIfExists('categories');
     }
 };
