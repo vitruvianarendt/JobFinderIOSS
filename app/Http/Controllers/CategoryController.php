@@ -37,12 +37,16 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'category_name'=>'required'
+        ]); 
+
         $newCategory = Category::create([
-            'name' => $request->categoryName
+            'name' => $request->category_name
         ]);
 
-        // $newCategory->save();
-        return redirect('/categories');
+        $newCategory->save();
+        return redirect('/categories')->with('success', 'Category added.');
     }
 
     /**
@@ -85,8 +89,9 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        //
+        Category::find($id)->delete();
+        return redirect('/categories')->with('success', 'Category removed.');;
     }
 }

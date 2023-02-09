@@ -32,8 +32,9 @@ Route::middleware('auth')->group(function () {
 //FOR ADMIN ROUTES
 Route::middleware(['auth','isAdmin'])->group(function(){
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
-    Route::get('/createCategory', [CategoryController::class, 'create'])->name('createPost');
-    Route::post('/createCategory', [CategoryController::class, 'store'])->name('storePost');
+    Route::get('/createCategory', [CategoryController::class, 'create']);
+    Route::post('/createCategory', [CategoryController::class, 'store']);
+    Route::post('/deleteCategory/{id}', [CategoryController::class, 'destroy']);
 });
 
 require __DIR__.'/auth.php';
