@@ -13,7 +13,7 @@
                 {{ session()->get('success') }}  
                 </div>
             @endif
-            <table class="table">
+            <table class="table" id="category-table">
                 <thead class="thead-light">
                   <tr>
                     <th scope="col">#</th>
@@ -41,3 +41,8 @@
     </div>
 
 </x-app-layout>
+<script>
+$(document).ready(function () {
+    $('#category-table').DataTable();
+});
+</script>
