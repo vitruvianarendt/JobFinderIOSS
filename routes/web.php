@@ -3,7 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\JobController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +37,8 @@ Route::middleware(['auth','isAdmin'])->group(function(){
     Route::get('/editCategory/{id}', [CategoryController::class, 'edit']);
     Route::post('/saveCategory/{id}', [CategoryController::class, 'update']);
     Route::post('/deleteCategory/{id}', [CategoryController::class, 'destroy']);
+
+    Route::get('/admin/jobs', [JobController::class, 'getAllJobsAdmin'])->name('adminJobs');
 });
 
 require __DIR__.'/auth.php';

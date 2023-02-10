@@ -17,6 +17,12 @@ class JobController extends Controller
         //
     }
 
+    public function getAllJobsAdmin()
+    {
+        $jobs = Job::all(); 
+        return view('jobs.adminView',['jobs' => $jobs]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
