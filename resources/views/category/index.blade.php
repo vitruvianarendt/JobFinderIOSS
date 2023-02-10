@@ -31,7 +31,7 @@
                                     @csrf
                                     <button class="btn btn-sm btn-danger m-1"><i class="fa-solid fa-trash-can m-2"></i></button>
                                 </form>
-                                <button type="submit" class="btn btn-sm btn-primary m-1"><i class="fa-solid fa-pen m-2"></i></button>
+                                <a href="/editCategory/{{ $category->id }}" class="btn btn-sm btn-primary m-1"><i class="fa-solid fa-pen m-2"></i></a>
                             </td>
                         </tr>
                     @endforeach
