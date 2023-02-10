@@ -27,10 +27,19 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    // Jobs
+    Route::get('/jobs', [JobController::class, 'index'])->name('jobs');
+    Route::get('/createJob', [JobController::class, 'create']);
+    Route::post('/createJob', [JobController::class, 'store']);
+    Route::get('/editJob/{id}', [JobController::class, 'edit']);
+    Route::post('/saveJob/{id}', [JobController::class, 'update']);
+    Route::post('/deleteJob/{id}', [JobController::class, 'destroy']);
 });
 
 //FOR ADMIN ROUTES
 Route::middleware(['auth','isAdmin'])->group(function(){
+    // Categories
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
     Route::get('/createCategory', [CategoryController::class, 'create']);
     Route::post('/createCategory', [CategoryController::class, 'store']);

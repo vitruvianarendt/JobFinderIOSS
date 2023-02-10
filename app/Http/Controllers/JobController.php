@@ -14,7 +14,8 @@ class JobController extends Controller
      */
     public function index()
     {
-        //
+        $jobs = Job::all(); 
+        return view('jobs.index',['jobs' => $jobs]);
     }
 
     public function getAllJobsAdmin()
@@ -30,7 +31,7 @@ class JobController extends Controller
      */
     public function create()
     {
-        //
+        return view('jobs.create');
     }
 
     /**
@@ -41,7 +42,23 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => ['required', 'max:255'],
+            'category' => 'required',
+            'description' => 'required',
+            'salary' => ['required', 'numeric'],
+            'position' => 'required',
+            'phone' => ['required', 'numeric'],
+            'address' => 'required',
+            'type' => 'required'
+        ]); 
+
+        $job = Job::create([
+            // TODO
+        ]);
+
+        $job->save();
+        return redirect('/jobs')->with('success', 'Job added succesfully.');
     }
 
     /**
@@ -61,9 +78,10 @@ class JobController extends Controller
      * @param  \App\Models\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function edit(Job $job)
+    public function edit($id)
     {
-        //
+        $job = Job::find($id);
+        return view('jobs.edit', compact('job'));
     }
 
     /**
@@ -73,9 +91,23 @@ class JobController extends Controller
      * @param  \App\Models\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Job $job)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => ['required', 'max:255'],
+            'category' => 'required',
+            'description' => 'required',
+            'salary' => ['required', 'numeric'],
+            'position' => 'required',
+            'phone' => ['required', 'numeric'],
+            'address' => 'required',
+            'type' => 'required'
+        ]); 
+        $job = Job::find($id);
+        // TODO
+        $job->save();
+ 
+        return redirect('/jobs')->with('success', 'Job updated.');
     }
 
     /**
@@ -84,8 +116,9 @@ class JobController extends Controller
      * @param  \App\Models\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Job $job)
+    public function destroy($id)
     {
-        //
+        Job::find($id)->delete();
+        return redirect('/jobs')->with('success', 'Job succesfully deleted.');
     }
 }
