@@ -23,13 +23,17 @@ class Job extends Model
         'role',
     ];
 
-    public function users(){
-        return $this->belongsToMany(User::class)->withTimeStamps();
-    }
-
     public function isAdmin() {
         return $this->role == '1';
     }
 
+    public function user(){
+        return $this->hasOne(User::class);
+    }
+
+    public function category()
+    {
+        return $this->hasOne(Category::class);
+    }
     use HasFactory;
 }
