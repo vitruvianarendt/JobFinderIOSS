@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('landing') }}">
                         <h4 class="text-decoration-none text-white">JobFinder</h4>
                     </a>
                 </div>
@@ -15,6 +15,14 @@
 {{--                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">--}}
 {{--                        {{ __('Dashboard') }}--}}
 {{--                    </x-nav-link>--}}
+                    <x-nav-link :href="route('createJob')" :active="request()->routeIs('createJob')" class="text-white">
+                        {{ __('Create Job') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('about')" :active="request()->routeIs('about')" class="text-white">
+                        {{ __('About Us') }}
+
+                    </x-nav-link>
                 @if(Auth::user()->role == '1')
                     <div class="hidden sm:flex sm:items-center sm:ml-6 pt-1">
                         <x-dropdown width="55">
@@ -42,11 +50,7 @@
                 @endif
                 </div>
             </div>
-            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                <x-nav-link :href="route('createJob')" :active="request()->routeIs('createJob')">
-                    {{ __('Create Job') }}
-                </x-nav-link>
-            </div>
+
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-dropdown align="right" width="48">

@@ -17,7 +17,10 @@ use App\Http\Controllers\JobController;
 
 Route::get('/', function () {
     return view('home.landing');
-});
+})->name('landing');
+Route::get('/about', function () {
+    return view('home.about');
+})->name('about');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
