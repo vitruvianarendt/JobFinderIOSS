@@ -8,8 +8,8 @@
                     <div class="col-md-12">
                         <div class="wrapper">
                             <div class="row no-gutters">
-                                <div class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch">
-                                    <div class="contact-wrap w-100 p-md-5 p-2">
+                                <div class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch p-md-4">
+                                    <div class="contact-wrap w-100 p-md-5">
                                         <div class="jumbotron">
                                             <h1 class="display-4 mb-5">About Us</h1>
                                             <p class="lead">The job search application is designed to make the process of finding employment easier and more efficient. Users can create a profile, upload their resume, and search for job postings that match their skills and experience. The app uses advanced algorithms to match job seekers with relevant job openings and provides a platform for employers to post job listings and search for qualified candidates. </p>
