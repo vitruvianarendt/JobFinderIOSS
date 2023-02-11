@@ -1,7 +1,7 @@
 <!-- Footer -->
-<footer class="bg-gray-900 text-center text-white">
+<footer class="bg-gray-900 text-center text-white position-fixed bottom-0 w-100">
     <!-- Grid container -->
-    <div class="container p-4">
+    <div class="container p-2">
         <!-- Section: Social media -->
         <section>
             <!-- Facebook -->
@@ -72,9 +72,9 @@
     <!-- Grid container -->
 
     <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        © 2023 Copyright: JobFinder
-    </div>
+{{--    <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2);">--}}
+{{--        © 2023 Copyright: JobFinder--}}
+{{--    </div>--}}
     <!-- Copyright -->
 </footer>
 <!-- Footer -->
