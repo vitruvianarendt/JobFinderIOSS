@@ -14,20 +14,20 @@ class JobController extends Controller
      */
     public function index()
     {
-        $jobs = Job::all(); 
+        $jobs = Job::all();
         return view('jobs.index',['jobs' => $jobs]);
     }
 
     public function getAllJobsAdmin()
     {
-        $jobs = Job::all(); 
+        $jobs = Job::all();
         return view('jobs.adminView',['jobs' => $jobs]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
@@ -51,7 +51,7 @@ class JobController extends Controller
             'phone' => ['required', 'numeric'],
             'address' => 'required',
             'type' => 'required'
-        ]); 
+        ]);
 
         $job = Job::create([
             // TODO
@@ -102,11 +102,11 @@ class JobController extends Controller
             'phone' => ['required', 'numeric'],
             'address' => 'required',
             'type' => 'required'
-        ]); 
+        ]);
         $job = Job::find($id);
         // TODO
         $job->save();
- 
+
         return redirect('/jobs')->with('success', 'Job updated.');
     }
 

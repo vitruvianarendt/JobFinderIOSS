@@ -16,7 +16,7 @@ use App\Http\Controllers\JobController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home.landing');
 });
 
 Route::get('/dashboard', function () {
@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
 
     // Jobs
     Route::get('/jobs', [JobController::class, 'index'])->name('jobs');
-    Route::get('/createJob', [JobController::class, 'create']);
+    Route::get('/createJob', [JobController::class, 'create'])->name('createJob');
     Route::post('/createJob', [JobController::class, 'store']);
     Route::get('/editJob/{id}', [JobController::class, 'edit']);
     Route::post('/saveJob/{id}', [JobController::class, 'update']);
@@ -49,5 +49,6 @@ Route::middleware(['auth','isAdmin'])->group(function(){
 
     Route::get('/admin/jobs', [JobController::class, 'getAllJobsAdmin'])->name('adminJobs');
 });
+
 
 require __DIR__.'/auth.php';

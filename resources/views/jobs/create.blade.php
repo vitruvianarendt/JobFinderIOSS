@@ -1,5 +1,5 @@
-<x-app-layout>
-    
+@extends('layouts.app')
+@section('content')
 <style>
     .form-group {
      border: 1px solid #ced4da;
@@ -23,12 +23,10 @@
      box-shadow: none;
    }
    </style>
-   
-   <body>
+<body>
        <div class="container">
            <section class="ftco-section">
-               <div class="container" style="margin-top: 3em; margin-bottom: 2em;">
-                   
+               <div class="container">
                    <div class="row justify-content-center">
                        <div class="col-md-12">
                            <div class="wrapper">
@@ -78,16 +76,16 @@
                                                        <label for="floatingRole">Role</label>
                                                    </div>
                                                    <button class="btn text-white" style="background-color: #00B074;" type="submit">Create</button>
-                                               </form> 
+                                               </form>
                                            </form>
                                        </div>
                                    </div>
                                    <div class="col-lg-4 col-md-5 d-flex align-items-stretch">
                                        <div class="info-wrap w-100 p-md-5 p-4" style="background-color: #00B074;">
-                                           <h2 class="text-white">JobinderIOSS</h2>
+                                           <h2 class="text-white">JobFinderIOSS</h2>
                                            <p class="mb-4 m-0 text-white" style="font-size: 1.2em;">We're the recruitment agency that gets the job DONE!</p>
                                            <p class="mb-3 text-white" style="font-size: 1.12em;">Start your journey on finding great canditates from here.</p>
-                                           
+
                                            <div class="dbox w-100 d-flex align-items-start">
                                        <div class="icon d-flex align-items-center justify-content-center" style="margin-right: 1.1em;">
                                            <div class="container">
@@ -105,7 +103,7 @@
                                            </div>
                                        </div>
                                        <div class="text pl-3">
-                                       <p class="text-white"><span>Phone: </span>+ 389 77 111 222</p>
+                                       <p class="text-white"><span>Phone: </span>+389 77 111 222</p>
                                      </div>
                                  </div>
                                    <div class="dbox w-100 d-flex align-items-center">
@@ -127,5 +125,5 @@
                </div>
            </section>
        </div>
-   </body>
-</x-app-layout>
+</body>
+@endsection
