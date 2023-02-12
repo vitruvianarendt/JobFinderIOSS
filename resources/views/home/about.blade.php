@@ -1,6 +1,4 @@
-@extends('layouts.app')
-@section('content')
-    <body>
+<x-app-layout>
     <div class="container">
         <section class="ftco-section">
             <div class="container">
@@ -63,5 +61,4 @@
             </div>
         </section>
     </div>
-    </body>
-@endsection
+</x-app-layout>

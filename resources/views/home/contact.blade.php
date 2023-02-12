@@ -1,5 +1,4 @@
-@extends('layouts.app')
-@section('content')
+<x-app-layout>
 <style>
     .form-group {
      border: 1px solid #ced4da;
@@ -23,7 +22,6 @@
      box-shadow: none;
    }
    </style>
-   <body>
        <div class="container justify-content-center bg-white" style="height: 100%;">
            <section class="ftco-section d-flex justify-content-center" style="height: 100%;">
                <div class="container" style="margin-top: 3em; margin-bottom: 2em;">        
@@ -69,5 +67,4 @@
                </div>
            </section>
        </div>
-   </body>
-@endsection
+</x-app-layout>

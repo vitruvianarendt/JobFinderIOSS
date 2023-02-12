@@ -1,6 +1,5 @@
-@extends('layouts.app')
-@section('content')
-    <div class=" bg-success">
+<x-app-layout>
+    <div class="bg-success">
         <img src="{{ url('images/job.jpg') }}"
              width="100%" class="center">
         <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center">
@@ -18,4 +17,5 @@
             </div>
         </div>
     </div>
-@endsection
+</x-app-layout>
+

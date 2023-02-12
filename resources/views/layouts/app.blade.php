@@ -33,9 +33,11 @@
             @endif
 
             <!-- Page Content -->
-            <main class="bg-white p-4">
-                @yield('content')
-            </main>
+            @if(isset($slot))
+                <main>
+                    {{ $slot }}
+                </main>
+            @endif
             @include('layouts.footer')
         </div>
     </body>
