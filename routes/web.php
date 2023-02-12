@@ -54,6 +54,7 @@ Route::middleware(['auth','isAdmin'])->group(function(){
     Route::post('/deleteCategory/{id}', [CategoryController::class, 'destroy']);
 
     Route::get('/admin/jobs', [JobController::class, 'getAllJobsAdmin'])->name('adminJobs');
+    Route::post('/admin/deleteJob/{id}', [JobController::class, 'deleteJobAdmin']);
 });
 
 

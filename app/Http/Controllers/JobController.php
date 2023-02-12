@@ -26,6 +26,12 @@ class JobController extends Controller
         return view('jobs.adminView',['jobs' => $jobs]);
     }
 
+    public function deleteJobAdmin($id)
+    {
+        Job::find($id)->delete();
+        return redirect('/admin/jobs')->with('success', 'Job succesfully deleted.');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

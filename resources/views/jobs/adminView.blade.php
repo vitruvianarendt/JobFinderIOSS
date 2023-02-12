@@ -7,6 +7,11 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            @if(session()->get('success'))
+                <div class="alert alert-success">
+                {{ session()->get('success') }}  
+                </div>
+            @endif
             <table id="example" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
@@ -19,6 +24,7 @@
                         <th>City</th>
                         <th>User</th>
                         <th>Created at</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,6 +39,13 @@
                         <td>{{ $job->city }}</td>
                         <td>{{ $job->getUserName() }}</td>
                         <th>{{ $job->created_at->format('Y-m-d') }}</th>
+                        <th class="d-flex">
+                            <form action="/admin/deleteJob/{{ $job->id }}" method="post">
+                                @csrf
+                                <button class="btn btn-sm btn-danger m-1"><i class="fa-solid fa-trash-can m-2"></i></button>
+                            </form>
+                            <a href="/editJob/{{ $job->id }}" class="btn btn-sm btn-primary m-1"><i class="fa-solid fa-pen m-2"></i></a>
+                        </th>
                     </tr>
                     @endforeach
                 </tbody>
