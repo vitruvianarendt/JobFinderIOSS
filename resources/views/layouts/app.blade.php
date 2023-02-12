@@ -33,7 +33,7 @@
             @endif
 
             <!-- Page Content -->
-            <main>
+            <main class="bg-white p-4">
                 @yield('content')
             </main>
             @include('layouts.footer')

@@ -21,6 +21,9 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('home.about');
 })->name('about');
+Route::get('/contact', function () {
+    return view('home.contact');
+})->name('contact');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

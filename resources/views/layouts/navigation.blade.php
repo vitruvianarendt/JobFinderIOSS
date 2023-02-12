@@ -23,6 +23,10 @@
                         {{ __('About Us') }}
 
                     </x-nav-link>
+                    <x-nav-link :href="route('contact')" :active="request()->routeIs('contact')" class="text-white">
+                        {{ __('Contact Us') }}
+
+                    </x-nav-link>
                 @if(Auth::user()->role == '1')
                     <div class="hidden sm:flex sm:items-center sm:ml-6 pt-1">
                         <x-dropdown width="55">
