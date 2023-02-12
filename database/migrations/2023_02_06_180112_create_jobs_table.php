@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('salary');
             $table->string('position');
             $table->string('phone');
-            $table->string('address');
+            $table->string('city');
             $table->string('type');
             $table->timestamps();
         });
