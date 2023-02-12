@@ -18,7 +18,7 @@ class Job extends Model
         'salary',
         'position',
         'phone',
-        'address',
+        'city',
         'type',
         'role',
     ];
@@ -34,6 +34,16 @@ class Job extends Model
     public function category()
     {
         return $this->hasOne(Category::class);
+    }
+
+    public function getCategoryName(){
+        $category = Category::find($this->category_id);
+        return $category->name;
+    }
+
+    public function getUserName(){
+        $user = User::find($this->user_id);
+        return $user->name;
     }
     use HasFactory;
 }

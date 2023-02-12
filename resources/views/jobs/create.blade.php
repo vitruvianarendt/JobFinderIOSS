@@ -32,49 +32,59 @@
                                    <div class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch">
                                        <div class="contact-wrap w-100 p-md-5 p-4">
                                            <h1 class="mb-4">Create A Job Post</h1>
-                                           <form method="POST" id="contactForm" name="contactForm" class="contactForm">
-                                               <form action="">
+                                           <form method="post" action="/createJob">
+                                                @csrf
+                                                <div class="input-group mb-3">
+                                                    <label class="input-group-text text-light-emphasis" for="inputGroupSelect01">Category</label>
+                                                    <select name="jobCategory" class="form-select" id="inputGroupSelect01" required>
+                                                        <option selected disabled>Pick a Category</option>
+                                                        @foreach($categories as $category)
+                                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
                                                    <div class="form-floating mb-3">
-                                                       <input name="jobTitle" type="text" class="form-control" id="floatingTitle" placeholder="">
-                                                       <label for="floatingTitle">Tile</label>
+                                                       <input name="jobTitle" type="text" class="form-control" id="floatingTitle" placeholder="" required>
+                                                       <label for="floatingTitle" class="control-label">Title</label>
                                                    </div>
                                                    <div class="form-floating mb-3">
-                                                       <textarea name="jobDesciption" class="form-control" rows="4" id="floatingDescr"></textarea>
-                                                       <label for="floatingDescr">Description</label>
+                                                       <textarea name="jobDesciption" class="form-control" rows="4" id="floatingDescr" required></textarea>
+                                                       <label for="floatingDescr" class="control-label">Description</label>
                                                    </div>
                                                    <div class="form-floating mb-3">
-                                                       <input name="jobSalary" type="number" class="form-control" id="floatingSalary" placeholder="">
-                                                       <label for="floatingSalary">Salary</label>
+                                                       <input name="jobSalary" type="number" class="form-control" id="floatingSalary" placeholder="" required>
+                                                       <label for="floatingSalary" class="control-label">Salary</label>
                                                    </div>
                                                    <div class="form-floating">
-                                                       <input name="jobPosition"  type="text" class="form-control" id="floatingPosition" placeholder="">
-                                                       <label for="floatingPosition">Position</label>
+                                                       <input name="jobPosition"  type="text" class="form-control" id="floatingPosition" placeholder="" required>
+                                                       <label for="floatingPosition" class="control-label">Position</label>
                                                    </div>
                                                    <div style="margin: 1em 0em 1em 0em;">
                                                        <div class="input-group mb-3">
-                                                           <span class="input-group-text text-light-emphasis">Mobile</span>
+                                                           <span class="input-group-text text-light-emphasis control-label">Mobile</span>
                                                            <span class="input-group-text">+389</span>
-                                                           <input name="jobPhoneNr" type="text" class="form-control">
+                                                           <input name="jobPhoneNr" type="text" class="form-control" required>
                                                          </div>
                                                    </div>
-                                                   <div class="form-floating mb-3" style="margin-top: 5px;">
-                                                       <input name="jobAddress" type="text" class="form-control" id="floatingAddress" placeholder="">
-                                                       <label for="floatingAddress">Address</label>
-                                                   </div>
                                                    <div class="input-group mb-3">
-                                                       <label class="input-group-text text-light-emphasis" for="inputGroupSelect01">Work type</label>
-                                                       <select name="jobWorkType" class="form-select" id="inputGroupSelect01">
-                                                         <option selected>On-site</option>
-                                                         <option value="1">Remote</option>
-                                                         <option value="2">Hybrid</option>
+                                                    <label class="input-group-text text-light-emphasis control-label" for="inputGroupSelect02">Work type</label>
+                                                    <select name="jobWorkType" class="form-select" id="inputGroupSelect02" required>
+                                                      <option selected value="On-site">On-site</option>
+                                                      <option value="Remote">Remote</option>
+                                                      <option value="Hybrid">Hybrid</option>
+                                                    </select>
+                                                </div>
+                                                   <div class="input-group mb-3">
+                                                       <label class="input-group-text text-light-emphasis control-label" for="inputGroupSelect03">City</label>
+                                                       <select name="jobCity" class="form-select" id="inputGroupSelect03" required>
+                                                         <option selected disabled>Pick a City</option>
+                                                         <option value="Skopje">Skopje</option>
+                                                         <option value="Debar">Tetovo</option>
+                                                         <option value="Debar">Gostivar</option>
+                                                         <option value="Debar">Debar</option>
                                                        </select>
                                                    </div>
-                                                   <div class="form-floating mb-3">
-                                                       <input name="jobRole" type="text" class="form-control" id="floatingRole" placeholder="">
-                                                       <label for="floatingRole">Role</label>
-                                                   </div>
                                                    <button class="btn text-white" style="background-color: #00B074;" type="submit">Create</button>
-                                               </form>
                                            </form>
                                        </div>
                                    </div>
@@ -102,7 +112,7 @@
                                        </div>
                                        <div class="text pl-3">
                                        <p class="text-white"><span>Phone: </span>+389 77 111 222</p>
-                                     </div>
+                                    </div>
                                  </div>
                                    <div class="dbox w-100 d-flex align-items-center">
                                        <div class="icon d-flex align-items-center justify-content-center" style="margin-right: 1.1em;">
@@ -112,7 +122,7 @@
                                        </div>
                                        <div class="text pl-3">
                                        <p class="text-white"><span>Email: </span>jobfinderIOSS@gmail.com</p>
-                                     </div>
+                                    </div>
                                  </div>
                              </div>
                                    </div>

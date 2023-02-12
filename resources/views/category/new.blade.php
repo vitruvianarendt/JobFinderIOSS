@@ -23,8 +23,8 @@
                         <form method="post" action="/createCategory">
                             @csrf
                             <div class="mb-3">
-                                <label for="category_name" class="form-label">Category Name</label>
-                                <input type="text" class="form-control" id="category_name" name="category_name">
+                                <label for="category_name" class="form-label control-label">Category Name: </label>
+                                <input type="text" class="form-control" id="category_name" name="category_name" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>

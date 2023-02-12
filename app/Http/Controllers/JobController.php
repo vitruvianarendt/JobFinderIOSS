@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Job;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
 {
@@ -31,7 +33,8 @@ class JobController extends Controller
      */
     public function create()
     {
-        return view('jobs.create');
+        $categories = Category::all();
+        return view('jobs.create',['categories' => $categories]);
     }
 
     /**
@@ -43,22 +46,32 @@ class JobController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => ['required', 'max:255'],
-            'category' => 'required',
-            'description' => 'required',
-            'salary' => ['required', 'numeric'],
-            'position' => 'required',
-            'phone' => ['required', 'numeric'],
-            'address' => 'required',
-            'type' => 'required'
+            'jobTitle' => ['required', 'max:255'],
+            'jobCategory' => 'required',
+            'jobDesciption' => 'required',
+            'jobSalary' => ['required', 'numeric'],
+            'jobPosition' => 'required',
+            'jobPhoneNr' => ['required', 'numeric'],
+            'jobCity' => 'required',
+            'jobWorkType' => 'required'
         ]);
 
+        $userId = Auth()->id();
+
         $job = Job::create([
-            // TODO
+            'title' => $request->jobTitle,
+            'category_id' => $request->jobCategory,
+            'description' => $request->jobDesciption,
+            'salary' => $request->jobSalary,
+            'position' => $request->jobPosition,
+            'phone' => $request->jobPhoneNr,
+            'city' => $request->jobCity,
+            'type' => $request->jobWorkType,
+            'user_id' => $userId
         ]);
 
         $job->save();
-        return redirect('/jobs')->with('success', 'Job added succesfully.');
+        return redirect('/')->with('success', 'Job added succesfully.');
     }
 
     /**
