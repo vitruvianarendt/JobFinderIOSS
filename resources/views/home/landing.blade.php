@@ -8,7 +8,7 @@
                     <div class="col-4" style="margin-top: 18%">
                         <a href="" class="btn btn-success py-md-3 px-md-5 me-3 mb-5">Search A Job</a>
                         <br>
-                        <a href="" class="btn btn-secondary py-md-3 px-md-5 mb-5">Find A Talent</a>
+                        <a href="findtalent" class="btn btn-secondary py-md-3 px-md-5 mb-5">Find A Talent</a>
                     </div>
                     <div class="col-8">
                         <img src="{{ url('svg/macedoniaLow.svg') }}" style="width: 1106px; height: 600px; padding: 0px; touch-action: none;">

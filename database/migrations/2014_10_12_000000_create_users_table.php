@@ -21,6 +21,9 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->string('phone')->nullable();
+            $table->string('current_position');
+            $table->string('gender')->default('Male');
         });
     }
 

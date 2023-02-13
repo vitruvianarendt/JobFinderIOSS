@@ -22,7 +22,11 @@
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
-
+        <div> 
+            <x-input-label for="genderid" :value="__('Gender')" />
+            <x-text-input id="genderid" name="gender" type="text" class="mt-1 block w-full" :value="old('gender', $user->gender)" required disabled autofocus autocomplete="gender" />
+            <x-input-error class="mt-2" :messages="$errors->get('gender')" />
+        </div>
         <div>
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="email" />
@@ -46,7 +50,16 @@
                 </div>
             @endif
         </div>
-
+        <div>
+            <x-input-label for="phone_numberid" :value="__('Phone Number')" />
+            <x-text-input id="phone_numberid" name="phone_number" type="text" class="mt-1 block w-full" :value="old('phone_number', $user->phone)" required autofocus autocomplete="Phone Number" />
+            <x-input-error class="mt-2" :messages="$errors->get('phone_number')" />
+        </div>
+        <div>
+            <x-input-label for="current_positionid" :value="__('Current Job/Position')" />
+            <x-text-input id="current_positionid" name="current_position" type="text" class="mt-1 block w-full" :value="old('current_position', $user->current_position)" required autofocus autocomplete="Current Position" />
+            <x-input-error class="mt-2" :messages="$errors->get('Current Position')" />
+        </div>
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 

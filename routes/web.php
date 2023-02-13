@@ -25,6 +25,8 @@ Route::get('/contact', function () {
     return view('home.contact');
 })->name('contact');
 
+Route::get('/findtalent', [ProfileController::class, 'getAll']);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
