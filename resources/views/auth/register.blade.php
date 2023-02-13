@@ -3,19 +3,31 @@
         @csrf
 
         <!-- Name -->
-        <div>
+        <div class="mt-4">
             <x-input-label for="name" :value="__('Name')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
-
+        <div class="mt-4">
+            <label><input type="radio" name="gender" value="Male" checked> Male</label>
+            <label><input type="radio" name="gender" value="Female"> Female</label>
+        </div>
+        <div style="margin-top: 1.1em">
+            <x-input-label for="genderid" :value="__('Current Job/Position')" />
+            <x-text-input id="genderid" class="block mt-1 w-full" type="text" name="current_position" :value="old('current_position')" required autofocus />
+            <x-input-error :messages="$errors->get('current_position')" class="mt-2" />
+        </div>
         <!-- Email Address -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
-
+        <div style="margin-top: 1.1em">
+            <x-input-label for="phone_numberid" :value="__('Phone Number')" />
+            <x-text-input id="phone_numberid" class="block mt-1 w-full" type="text" name="phone_number" :value="old('phone_number')" required autofocus />
+            <x-input-error :messages="$errors->get('phone_number')" class="mt-2" />
+        </div>
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />

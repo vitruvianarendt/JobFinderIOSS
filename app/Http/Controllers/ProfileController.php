@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
@@ -21,6 +22,12 @@ class ProfileController extends Controller
         ]);
     }
 
+    public function getAll(Request $request): View{
+        
+        $users = User::all();
+        return view('home.users',['users' => $users]);
+    }
+
     /**
      * Update the user's profile information.
      */
@@ -31,7 +38,8 @@ class ProfileController extends Controller
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
-
+        $request->user()->phone = $request->input('phone_number');
+        $request->user()->current_position = $request->input('current_position');
         $request->user()->save();
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
