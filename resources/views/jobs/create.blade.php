@@ -79,9 +79,29 @@
                                                        <select name="jobCity" class="form-select" id="inputGroupSelect03" required>
                                                          <option selected disabled>Pick a City</option>
                                                          <option value="Skopje">Skopje</option>
-                                                         <option value="Debar">Tetovo</option>
-                                                         <option value="Debar">Gostivar</option>
+                                                         <option value="Ohrid">Ohrid</option>
+                                                         <option value="Tetovo">Tetovo</option>
+                                                         <option value="Gostivar">Gostivar</option>
+                                                         <option value="Bitola">Bitola</option>
+                                                         <option value="Prilep">Prilep</option>
+                                                         <option value="Veles">Veles</option>
                                                          <option value="Debar">Debar</option>
+                                                         <option value="Delcevo">Delcevo</option>
+                                                         <option value="Struga">Struga</option>
+                                                         <option value="Kratovo">Kratovo</option>
+                                                         <option value="Kriva Palanka">Kriva Palanka</option>
+                                                         <option value="Kumanovo">Kumanovo</option>
+                                                         <option value="Resen">Resen</option>
+                                                         <option value="Makedonski Brod">Makedonski Brod</option>
+                                                         <option value="Novo Selo">Novo Selo</option>
+                                                         <option value="Kavadarci">Kavadarci</option>
+                                                         <option value="Mavrovo">Mavrovo</option>
+                                                         <option value="Centar Zupa">Centar Zupa</option>
+                                                         <option value="Vevcani">Vevcani</option>
+                                                         <option value="Debarca">Debarca</option>
+                                                         <option value="Saraj">Saraj</option>
+                                                         <option value="Sopiste">Sopiste</option>
+                                                         <option value="Studenicani">Studenicani</option>
                                                        </select>
                                                    </div>
                                                    <button class="btn text-white" style="background-color: #00B074;" type="submit">Create</button>

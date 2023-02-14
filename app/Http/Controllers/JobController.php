@@ -20,6 +20,14 @@ class JobController extends Controller
         return view('jobs.index',['jobs' => $jobs]);
     }
 
+    public function viewJobsCity(Request $request, $city)
+    {
+        $jobs = Job::where('city', $city);
+        // TO BE COMPLETED THE VIEW
+        return view('jobs.index',['jobs' => $jobs]);
+    }
+    
+
     public function getAllJobsAdmin()
     {
         $jobs = Job::all();
