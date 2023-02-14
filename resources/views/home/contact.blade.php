@@ -24,14 +24,14 @@
    </style>
        <div class="container justify-content-center bg-white" style="height: 100%;">
            <section class="ftco-section d-flex justify-content-center" style="height: 100%;">
-               <div class="container" style="margin-top: 3em; margin-bottom: 2em;">        
+               <div class="container" style="margin-top: 3em; margin-bottom: 2em;">
                    <div class="row d-flex justify-content-center">
                        <div class="col-md-12">
                            <div class="wrapper">
                                <div class="row flex-row-reverse no-gutters">
                                    <div class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch">
                                        <div class="contact-wrap w-100 p-md-5 p-4">
-                                           <h1 class="mb-4">Create A Job Post</h1>
+                                           <h1 class="mb-4">Contact Us</h1>
                                            <form method="POST" id="contactForm" name="contactForm" class="contactForm" action="">
                                                    <div class="form-floating mb-3">
                                                        <input name="contactName" type="text" class="form-control" id="contactNameid" placeholder="">
@@ -56,7 +56,7 @@
                                            <p class="mb-4 m-0 text-white" style="font-size: 1.2em;">If you have any questions or to say something please feel free to contact us. <br> We appreciate your thoughts.</p>
                                            <div class="d-flex justify-content-center">
                                                <img src="{{url('images/email.png')}}" alt="email logo" style="max-height: 10em">
-                                           </div>    
+                                           </div>
                                        </div>
                              </div>
                                    </div>
