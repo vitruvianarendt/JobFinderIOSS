@@ -7,7 +7,37 @@
 </style>
 
 <x-app-layout>
-    <div class="container h-100">
+    @if($city != null)
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <h3 class="d-flex justify-content-center my-4">All Jobs in {{$city}}</h3>
+            @forelse($cityJobs as $job)
+                <ul>
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-2">
+                                <img src="">
+                            </div>
+                            <div class="col-8">
+                                <h2 style="font-size: 1.5rem" class="pt-6 mt-3">{{ $job->title }}</h2>
+                                <p class="pt-2"
+                                   style="display: block; max-width: 98%; ">{{$job->description}}</p>
+                                <br>
+                            </div>
+                            <div class="col-2 text-center align-self-center">
+                                <button class="bg-success px-4 py-3 text-white rounded">Apply Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="mb-4">
+                </ul>
+            @empty
+                <p class="text-warning d-flex justify-content-center">No Job Posts Available</p>
+            @endforelse
+        </div>
+    </div>
+    @else
+    <div class="container">
         <ul class="nav nav-tabs d-flex justify-content-center my-4" id="myTab" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" id="featured-tab" data-toggle="tab" href="#featured" role="tab"
@@ -137,4 +167,5 @@
             </div>
         </div>
     </div>
+    @endif
 </x-app-layout>
