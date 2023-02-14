@@ -1,5 +1,8 @@
 <x-app-layout>
 <style>
+    label.input-group-text {
+        margin: 0 !important;
+    }
     .form-group {
      border: 1px solid #ced4da;
      padding: 5px;
@@ -30,11 +33,11 @@
                            <div class="wrapper">
                                <div class="row no-gutters">
                                    <div class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch">
-                                       <div class="contact-wrap w-100 p-md-5 p-4">
+                                       <div class="contact-wrap w-100 p-md-5 p-4 mb-5">
                                            <h1 class="mb-4">Create A Job Post</h1>
-                                           <form method="post" action="/createJob">
+                                               <form method="post" action="/createJob">
                                                 @csrf
-                                                <div class="input-group mb-3">
+                                                <div class="input-group d-flex mb-3 align-items-stretch">
                                                     <label class="input-group-text text-light-emphasis" for="inputGroupSelect01">Category</label>
                                                     <select name="jobCategory" class="form-select" id="inputGroupSelect01" required>
                                                         <option selected disabled>Pick a Category</option>
@@ -60,13 +63,17 @@
                                                        <label for="floatingPosition" class="control-label">Position</label>
                                                    </div>
                                                    <div style="margin: 1em 0em 1em 0em;">
-                                                       <div class="input-group mb-3">
-                                                           <span class="input-group-text text-light-emphasis control-label">Mobile</span>
-                                                           <span class="input-group-text">+389</span>
-                                                           <input name="jobPhoneNr" type="text" class="form-control" required>
-                                                         </div>
+                                                       <div class="input-group d-flex mb-3">
+                                                           <div class="col-3 d-flex mx-0">
+                                                               <span class="input-group-text text-light-emphasis control-label">Mobile</span>
+                                                               <span class="input-group-text">+389</span>
+                                                           </div>
+                                                           <div class="col-9">
+                                                               <input name="jobPhoneNr" type="text" class="form-control d-flex" required>
+                                                           </div>
+                                                       </div>
                                                    </div>
-                                                   <div class="input-group mb-3">
+                                                   <div class="input-group d-flex mb-3">
                                                     <label class="input-group-text text-light-emphasis control-label" for="inputGroupSelect02">Work type</label>
                                                     <select name="jobWorkType" class="form-select" id="inputGroupSelect02" required>
                                                       <option selected value="On-site">On-site</option>
@@ -74,7 +81,7 @@
                                                       <option value="Hybrid">Hybrid</option>
                                                     </select>
                                                 </div>
-                                                   <div class="input-group mb-3">
+                                                   <div class="input-group d-flex mb-3">
                                                        <label class="input-group-text text-light-emphasis control-label" for="inputGroupSelect03">City</label>
                                                        <select name="jobCity" class="form-select" id="inputGroupSelect03" required>
                                                          <option selected disabled>Pick a City</option>
