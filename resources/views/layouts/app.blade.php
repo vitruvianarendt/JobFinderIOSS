@@ -36,7 +36,7 @@
     </style>
     </head>
     <body class="font-sans antialiased">
-        <div class="bg-gray-100 ">
+        <div class="bg-gray-100 h-100">
             @include('layouts.navigation')
             <!-- Page Heading -->
             @if (isset($header))

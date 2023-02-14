@@ -17,22 +17,16 @@ class JobController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function index()
+    public function index(Request $request)
     {
+        $city = $request->city;
         $jobs = Job::all();
         $site = Job::where('type', 'On-site')->get();
         $remote = Job::where('type', 'Remote')->get();
         $hybrid = Job::where('type', 'Hybrid')->get();
-        return view('jobs.index',['jobs' => $jobs, 'site' => $site, 'remote' => $remote, 'hybrid' => $hybrid]);
+        $cityJobs = Job::where('city', $city)->get();
+        return view('jobs.index',['jobs' => $jobs, 'site' => $site, 'remote' => $remote, 'hybrid' => $hybrid, 'city' => $city, 'cityJobs'=> $cityJobs]);
     }
-
-    public function viewJobsCity(Request $request, $city)
-    {
-        $jobs = Job::where('city', $city)->get();
-        // TO BE COMPLETED THE VIEW
-        return view('jobs.index',['jobs' => $jobs]);
-    }
-
 
     public function getAllJobsAdmin()
     {
