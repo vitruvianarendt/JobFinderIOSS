@@ -10,7 +10,7 @@
                       <img src="{{url('images/cardtopimg.png')}}" alt="Cover" class="card-img-top">
                       <div class="card-body text-center">
                         {{$usergenderpic=null}}
-                        @if($user->gender==0)
+                        @if($user->gender=='Male')
                         <img src="{{url('images/male.png')}}" style="width:100px;margin-top:-65px" alt="User" class="img-fluid img-thumbnail rounded-circle border-0 mb-3">
                         @else
                         <img src="{{url('images/female.png')}}" style="width:100px;margin-top:-65px" alt="User" class="img-fluid img-thumbnail rounded-circle border-0 mb-3">
