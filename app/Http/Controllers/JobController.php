@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Job;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,21 +15,24 @@ class JobController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function index()
     {
         $jobs = Job::all();
-        return view('jobs.index',['jobs' => $jobs]);
+        $site = Job::where('type', 'On-site')->get();
+        $remote = Job::where('type', 'Remote')->get();
+        $hybrid = Job::where('type', 'Hybrid')->get();
+        return view('jobs.index',['jobs' => $jobs, 'site' => $site, 'remote' => $remote, 'hybrid' => $hybrid]);
     }
 
     public function viewJobsCity(Request $request, $city)
     {
-        $jobs = Job::where('city', $city);
+        $jobs = Job::where('city', $city)->get();
         // TO BE COMPLETED THE VIEW
         return view('jobs.index',['jobs' => $jobs]);
     }
-    
+
 
     public function getAllJobsAdmin()
     {
@@ -37,13 +43,13 @@ class JobController extends Controller
     public function deleteJobAdmin($id)
     {
         Job::find($id)->delete();
-        return redirect('/admin/jobs')->with('success', 'Job succesfully deleted.');
+        return redirect('/admin/jobs')->with('success', 'Job successfully deleted.');
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
     public function create()
     {
