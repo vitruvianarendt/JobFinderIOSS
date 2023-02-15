@@ -44,6 +44,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/editJob/{id}', [JobController::class, 'edit']);
     Route::post('/saveJob/{id}', [JobController::class, 'update']);
     Route::post('/deleteJob/{id}', [JobController::class, 'destroy']);
+    // Applications
+    Route::get('/applications', [JobController::class, 'viewApplications'])->name('applications');
+
 });
 
 //FOR ADMIN ROUTES
