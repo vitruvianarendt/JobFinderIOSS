@@ -141,7 +141,7 @@ class JobController extends Controller
     public function viewMyApplications(Request $request){
         $jobsIds = DB::table('applications')->where('user_id',Auth::id())->pluck('job_id')->toArray();
         $jobs = Job::whereIn('id', $jobsIds)->get();
-        return view('jobs.myApplications',['jobs' => $jobs]);
+        return view('jobs.myApplications',['jobs' => $jobs, 'user'=> $request->user()]);
     }
 
     public function jobApplications(Request $request, $id){
