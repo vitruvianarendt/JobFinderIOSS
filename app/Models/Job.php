@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class Job extends Model
 {
@@ -45,5 +47,21 @@ class Job extends Model
         $user = User::find($this->user_id);
         return $user->name;
     }
+
+    public function applications()
+    {
+        return DB::table('applications')->where('job_id', $this->id)->get();
+    }
+
+    public function userHasApplied()
+    {
+        $applied = DB::table('applications')->where('job_id', $this->id)
+            ->where('user_id',Auth::id())->get();
+        if(isset($applied) && $applied->count() != 0){
+            return true;
+        }
+        return false;
+    }
+
     use HasFactory;
 }

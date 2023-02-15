@@ -45,8 +45,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/saveJob/{id}', [JobController::class, 'update']);
     Route::post('/deleteJob/{id}', [JobController::class, 'destroy']);
     // Applications
-    Route::get('/applications', [JobController::class, 'viewApplications'])->name('applications');
-
+    Route::get('/myApplications', [JobController::class, 'viewMyApplications'])->name('my.applications');
+    Route::get('/applications', [JobController::class, 'jobApplications'])->name('applications');
+    Route::post('/applyApplication/{id}', [JobController::class, 'createApplication']);
 });
 
 //FOR ADMIN ROUTES
