@@ -28,13 +28,15 @@
                                 <br>
                                 <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ <br><i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
                             </div>
-                            <div class="col-2 text-center align-self-center">
-                                @if($job->userHasApplied())
-                                    <button class="px-4 py-3 text-white rounded" style="background-color: #305d4e" disabled>Applied</button>
-                                @else
-                                    <button type="submit" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
-                                @endif
-                            </div>
+                            @if(Auth::user() && Auth::user()->user_type == 'Personal_Account')
+                                <div class="col-2 text-center align-self-center">
+                                    @if($job->userHasApplied())
+                                        <button class="px-4 py-3 text-white rounded" style="background-color: #305d4e" disabled>Applied</button>
+                                    @else
+                                        <button type="submit" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
+                                    @endif
+                                </div>
+                            @endif
                         </div>
                     </div>
                     <hr class="mb-4">
@@ -84,13 +86,15 @@
                                         <br>
                                      <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ <br><i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
                                     </div>
-                                    <div class="col-2 text-center align-self-center">
-                                        @if($job->userHasApplied())
-                                            <button class="px-4 py-3 text-white rounded" style="background-color: #305d4e" disabled>Applied</button>
-                                        @else
-                                            <button type="submit" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
-                                        @endif
-                                    </div>
+                                    @if(Auth::user() && Auth::user()->user_type == 'Personal_Account')
+                                        <div class="col-2 text-center align-self-center">
+                                            @if($job->userHasApplied())
+                                                <button class="px-4 py-3 text-white rounded" style="background-color: #305d4e" disabled>Applied</button>
+                                            @else
+                                                <button type="submit" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
+                                            @endif
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                             <hr class="mb-4">
@@ -119,13 +123,15 @@
                                         <br>
                                          <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ <br><i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
                                     </div>
-                                    <div class="col-2 text-center align-self-center">
-                                        @if($job->userHasApplied())
-                                            <button class="px-4 py-3 text-white rounded" style="background-color: #305d4e" disabled>Applied</button>
-                                        @else
-                                            <button type="submit" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
-                                        @endif
-                                    </div>
+                                    @if(Auth::user() && Auth::user()->user_type == 'Personal_Account')
+                                        <div class="col-2 text-center align-self-center">
+                                            @if($job->userHasApplied())
+                                                <button class="px-4 py-3 text-white rounded" style="background-color: #305d4e" disabled>Applied</button>
+                                            @else
+                                                <button type="submit" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
+                                            @endif
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                             <hr class="mb-4">
@@ -154,13 +160,15 @@
                                         <br>
                                           <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ <br><i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
                                     </div>
-                                    <div class="col-2 text-center align-self-center">
-                                        @if($job->userHasApplied())
-                                            <button class="px-4 py-3 text-white rounded" style="background-color: #305d4e" disabled>Applied</button>
-                                        @else
-                                            <button type="submit" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
-                                        @endif
-                                    </div>
+                                    @if(Auth::user() && Auth::user()->user_type == 'Personal_Account')
+                                        <div class="col-2 text-center align-self-center">
+                                            @if($job->userHasApplied())
+                                                <button class="px-4 py-3 text-white rounded" style="background-color: #305d4e" disabled>Applied</button>
+                                            @else
+                                                <button type="submit" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
+                                            @endif
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                             <hr class="mb-4">
@@ -189,13 +197,15 @@
                                         <br>
                                         <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ <br><i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
                                     </div>
-                                    <div class="col-2 text-center align-self-center">
-                                        @if($job->userHasApplied())
-                                            <button class="px-4 py-3 text-white rounded" style="background-color: #305d4e" disabled>Applied</button>
-                                        @else
-                                            <button type="submit" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
-                                        @endif
-                                    </div>
+                                    @if(Auth::user() && Auth::user()->user_type == 'Personal_Account')
+                                        <div class="col-2 text-center align-self-center">
+                                            @if($job->userHasApplied())
+                                                <button class="px-4 py-3 text-white rounded" style="background-color: #305d4e" disabled>Applied</button>
+                                            @else
+                                                <button type="submit" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
+                                            @endif
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                             <hr class="mb-4">
