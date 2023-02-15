@@ -22,7 +22,7 @@
      box-shadow: none;
    }
    </style>
-       <div class="container justify-content-center bg-white" style="height: 100%;">
+       <div class="container justify-content-center bg-white">
            <section class="ftco-section d-flex justify-content-center" style="height: 100%;">
                <div class="container" style="margin-top: 3em; margin-bottom: 2em;">
                    <div class="row d-flex justify-content-center">

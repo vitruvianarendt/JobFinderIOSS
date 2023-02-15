@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
     li>a {
         color: black !important;
@@ -23,9 +24,10 @@
                                 <p class="pt-2"
                                    style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                 <br>
+                                <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}} <br><i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
                             </div>
                             <div class="col-2 text-center align-self-center">
-                                <button class="bg-success px-4 py-3 text-white rounded">Apply Now</button>
+                                <button class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
                             </div>
                         </div>
                     </div>
@@ -71,9 +73,10 @@
                                         <p class="pt-2"
                                            style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                         <br>
+                                     <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}} <br><i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
                                     </div>
                                     <div class="col-2 text-center align-self-center">
-                                        <button class="bg-success px-4 py-3 text-white rounded">Apply Now</button>
+                                        <button class="px-4 py-3 text-white rounded" style="background-color: #00b074;">Apply Now</button>
                                     </div>
                                 </div>
                             </div>
@@ -98,9 +101,10 @@
                                         <p class="pt-2"
                                            style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                         <br>
+                                         <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}} <br><i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
                                     </div>
                                     <div class="col-2 text-center align-self-center">
-                                        <button class="bg-success px-4 py-3 text-white rounded">Apply Now</button>
+                                        <button class="px-4 py-3 text-white rounded" style="background-color: #00b074;">Apply Now</button>
                                     </div>
                                 </div>
                             </div>
@@ -125,9 +129,10 @@
                                         <p class="pt-2"
                                            style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                         <br>
+                                          <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}} <br><i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
                                     </div>
                                     <div class="col-2 text-center align-self-center">
-                                        <button class="bg-success px-4 py-3 text-white rounded">Apply Now</button>
+                                        <button class="px-4 py-3 text-white rounded" style="background-color: #00b074;">Apply Now</button>
                                     </div>
                                 </div>
                             </div>
@@ -152,9 +157,10 @@
                                         <p class="pt-2"
                                            style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                         <br>
+                                        <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}} <br><i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
                                     </div>
                                     <div class="col-2 text-center align-self-center">
-                                        <button class="bg-success px-4 py-3 text-white rounded">Apply Now</button>
+                                        <button class="px-4 py-3 text-white rounded" style="background-color: #00b074;">Apply Now</button>
                                     </div>
                                 </div>
                             </div>

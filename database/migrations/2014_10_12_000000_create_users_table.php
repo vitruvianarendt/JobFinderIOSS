@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('current_position');
             $table->string('gender')->default('Male');
+            $table->string('user_type')->default('Personal_Account');
         });
     }
 
