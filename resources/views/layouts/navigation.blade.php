@@ -12,9 +12,14 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden text-decoration-none space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('createJob')" :active="request()->routeIs('createJob')" class="text-white">
-                        {{ __('Create Job') }}
-                    </x-nav-link>
+                    @if(Auth::user() && Auth::user()->user_type != 'Personal_Account')
+                        <x-nav-link :href="route('createJob')" :active="request()->routeIs('createJob')" class="text-white">
+                            {{ __('Create Job') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('applications')" :active="request()->routeIs('applications')" class="text-white">
+                            {{ __('Applications') }}
+                        </x-nav-link>
+                    @endif
                     <x-nav-link :href="route('jobs')" :active="request()->routeIs('jobs')" class="text-white">
                         {{ __('All Jobs') }}
                     </x-nav-link>
