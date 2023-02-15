@@ -138,8 +138,10 @@ class JobController extends Controller
 
         return redirect('/jobs')->with('success', 'Job updated.');
     }
-    public function viewMyApplications(Request $request, $id){
-    
+    public function viewMyApplications(Request $request){
+        $jobsIds = DB::table('applications')->where('user_id',Auth::id())->pluck('job_id')->toArray();
+        $jobs = Job::whereIn('id', $jobsIds)->get();
+        return view('jobs.myApplications',['jobs' => $jobs]);
     }
 
     public function jobApplications(Request $request, $id){
