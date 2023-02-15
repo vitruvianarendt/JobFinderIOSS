@@ -13,6 +13,8 @@
         <div class="row d-flex justify-content-center">
             <h3 class="d-flex justify-content-center my-4">All Jobs in {{$city}}</h3>
             @forelse($cityJobs as $job)
+            <form method="post" action="/applyApplication/{{$job->id}}">
+                @csrf
                 <ul>
                     <div class="card">
                         <div class="row">
@@ -24,15 +26,20 @@
                                 <p class="pt-2"
                                    style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                 <br>
-                                <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}} <br><i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
+                                <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ <br><i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
                             </div>
                             <div class="col-2 text-center align-self-center">
-                                <button class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
+                                @if($job->userHasApplied())
+                                    <button class="px-4 py-3 text-white rounded" style="background-color: #305d4e" disabled>Applied</button>
+                                @else
+                                    <button type="submit" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
+                                @endif
                             </div>
                         </div>
                     </div>
                     <hr class="mb-4">
                 </ul>
+            </form>
             @empty
                 <p class="text-warning d-flex justify-content-center">No Job Posts Available</p>
             @endforelse
@@ -62,6 +69,8 @@
             <div class="tab-pane fade show active" id="featured" role="tabpanel" aria-labelledby="featured-tab">
                 <div class="row d-flex justify-content-center">
                     @forelse($jobs as $job)
+                    <form method="post" action="/applyApplication/{{$job->id}}">
+                        @csrf
                         <ul>
                             <div class="card">
                                 <div class="row">
@@ -73,15 +82,20 @@
                                         <p class="pt-2"
                                            style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                         <br>
-                                     <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}} <br><i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
+                                     <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ <br><i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
                                     </div>
                                     <div class="col-2 text-center align-self-center">
-                                        <button class="px-4 py-3 text-white rounded" style="background-color: #00b074;">Apply Now</button>
+                                        @if($job->userHasApplied())
+                                            <button class="px-4 py-3 text-white rounded" style="background-color: #305d4e" disabled>Applied</button>
+                                        @else
+                                            <button type="submit" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                             <hr class="mb-4">
                         </ul>
+                    </form>
                     @empty
                         <p class="text-warning d-flex justify-content-center">No Job Posts Available</p>
                     @endforelse
@@ -90,6 +104,8 @@
             <div class="tab-pane fade" id="site" role="tabpanel" aria-labelledby="site-tab">
                 <div class="row d-flex justify-content-center">
                     @forelse($site as $job)
+                    <form method="post" action="/applyApplication/{{$job->id}}">
+                        @csrf
                         <ul>
                             <div class="card">
                                 <div class="row">
@@ -101,15 +117,20 @@
                                         <p class="pt-2"
                                            style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                         <br>
-                                         <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}} <br><i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
+                                         <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ <br><i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
                                     </div>
                                     <div class="col-2 text-center align-self-center">
-                                        <button class="px-4 py-3 text-white rounded" style="background-color: #00b074;">Apply Now</button>
+                                        @if($job->userHasApplied())
+                                            <button class="px-4 py-3 text-white rounded" style="background-color: #305d4e" disabled>Applied</button>
+                                        @else
+                                            <button type="submit" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                             <hr class="mb-4">
                         </ul>
+                    </form>
                     @empty
                         <p class="text-warning d-flex justify-content-center">No Job Posts Available</p>
                     @endforelse
@@ -118,6 +139,8 @@
             <div class="tab-pane fade" id="remote" role="tabpanel" aria-labelledby="remote-tab">
                 <div class="row d-flex justify-content-center">
                     @forelse($remote as $job)
+                    <form method="post" action="/applyApplication/{{$job->id}}">
+                        @csrf
                         <ul>
                             <div class="card">
                                 <div class="row">
@@ -129,15 +152,20 @@
                                         <p class="pt-2"
                                            style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                         <br>
-                                          <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}} <br><i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
+                                          <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ <br><i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
                                     </div>
                                     <div class="col-2 text-center align-self-center">
-                                        <button class="px-4 py-3 text-white rounded" style="background-color: #00b074;">Apply Now</button>
+                                        @if($job->userHasApplied())
+                                            <button class="px-4 py-3 text-white rounded" style="background-color: #305d4e" disabled>Applied</button>
+                                        @else
+                                            <button type="submit" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                             <hr class="mb-4">
                         </ul>
+                    </form>
                     @empty
                         <p class="text-warning d-flex justify-content-center">No Job Posts Available</p>
                     @endforelse
@@ -146,6 +174,8 @@
             <div class="tab-pane fade" id="hybrid" role="tabpanel" aria-labelledby="hybrid-tab">
                 <div class="row d-flex justify-content-center">
                     @forelse($hybrid as $job)
+                    <form method="post" action="/applyApplication/{{$job->id}}">
+                        @csrf
                         <ul>
                             <div class="card">
                                 <div class="row">
@@ -157,15 +187,20 @@
                                         <p class="pt-2"
                                            style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                         <br>
-                                        <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}} <br><i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
+                                        <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ <br><i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
                                     </div>
                                     <div class="col-2 text-center align-self-center">
-                                        <button class="px-4 py-3 text-white rounded" style="background-color: #00b074;">Apply Now</button>
+                                        @if($job->userHasApplied())
+                                            <button class="px-4 py-3 text-white rounded" style="background-color: #305d4e" disabled>Applied</button>
+                                        @else
+                                            <button type="submit" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                             <hr class="mb-4">
                         </ul>
+                    </form>
                     @empty
                         <p class="text-warning d-flex justify-content-center">No Job Posts Available</p>
                     @endforelse

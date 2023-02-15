@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Job;
+use DateTime;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class JobController extends Controller
 {
@@ -135,6 +137,24 @@ class JobController extends Controller
         $job->save();
 
         return redirect('/jobs')->with('success', 'Job updated.');
+    }
+    public function viewMyApplications(Request $request, $id){
+    
+    }
+
+    public function jobApplications(Request $request, $id){
+    
+    }
+
+    public function createApplication(Request $request, $id){
+        $userId = Auth()->id();
+
+        DB::table('applications')->insert([
+            ['user_id' => $userId, 'job_id' => $id, 'created_at' => new DateTime(), 'updated_at' => new DateTime()]
+        ]);
+        // to be uncommented
+        // return redirect('/myApplications')->with('success', 'Application created succesfully.');
+        return redirect('/jobs');
     }
 
     /**
