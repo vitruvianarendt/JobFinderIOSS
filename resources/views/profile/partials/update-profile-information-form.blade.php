@@ -60,6 +60,10 @@
             <x-text-input id="current_positionid" name="current_position" type="text" class="mt-1 block w-full" :value="old('current_position', $user->current_position)" required autofocus autocomplete="Current Position" />
             <x-input-error class="mt-2" :messages="$errors->get('Current Position')" />
         </div>
+        <div class="mt-4">
+            <x-input-label for="user_typeid" :value="__('Account type')" />
+            <x-text-input id="user_typeid" name="user_type" type="text" class="mt-1 block w-full" :value="old('user_type', $user->user_type)" disabled autofocus autocomplete="Phone Number" />
+        </div>
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 

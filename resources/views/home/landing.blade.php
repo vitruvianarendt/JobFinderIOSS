@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="row justify-content-start text-white">
                     <div class="col-4" style="margin-top: 18%">
-                        <a href="" class="btn btn-success py-md-3 px-md-5 me-3 mb-5">Search A Job</a>
+                        <a href="" class="btn py-md-3 px-md-5 me-3 mb-5 text-white" style="background-color: #00b074">Search A Job</a>
                         <br>
                         <a href="findtalent" class="btn btn-secondary py-md-3 px-md-5 mb-5">Find A Talent</a>
                     </div>
