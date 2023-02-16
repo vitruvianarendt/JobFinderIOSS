@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Job;
+use App\Models\User;
 use DateTime;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -144,8 +145,12 @@ class JobController extends Controller
         return view('jobs.myApplications',['jobs' => $jobs, 'user'=> $request->user()]);
     }
 
-    public function jobApplications(Request $request, $id){
-    
+    public function jobApplications(Request $request){
+        // $recjobs = Job::where('user_id', auth()->id())->get();
+        // $user = auth()->user();
+        // $allusers = User::all();
+        // $applications = DB::select('select * from jobsmk.applications');
+        return view('jobs.applications');
     }
 
     public function createApplication(Request $request, $id){

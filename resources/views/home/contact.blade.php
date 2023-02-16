@@ -25,24 +25,24 @@
        <div class="container justify-content-center bg-white">
            <section class="ftco-section d-flex justify-content-center" style="height: 100%;">
                <div class="container" style="margin-top: 3em; margin-bottom: 2em;">
-                   <div class="row d-flex justify-content-center">
+                   <div class="row d-flex justify-content-center shadow-lg p-3 mb-5 bg-body rounded">
                        <div class="col-md-12">
                            <div class="wrapper">
                                <div class="row flex-row-reverse no-gutters">
-                                   <div class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch">
+                                   <div class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch ">
                                        <div class="contact-wrap w-100 p-md-5 p-4">
                                            <h1 class="mb-4">Contact Us</h1>
                                            <form method="POST" id="contactForm" name="contactForm" class="contactForm" action="">
                                                    <div class="form-floating mb-3">
-                                                       <input name="contactName" type="text" class="form-control" id="contactNameid" placeholder="">
+                                                       <input name="contactName" type="text" class="form-control shadow-sm" id="contactNameid" placeholder="">
                                                        <label for="contactNameid">Name</label>
                                                    </div>
                                                    <div class="form-floating" style="margin-bottom: 1.1em;">
-                                                       <input name="contactEmail"  type="email" class="form-control" id="contactEmailid" placeholder="">
+                                                       <input name="contactEmail"  type="email" class="form-control shadow-sm" id="contactEmailid" placeholder="">
                                                        <label for="contactEmailid">Email</label>
                                                    </div>
                                                    <div class="form-floating mb-3">
-                                                       <textarea name="contactFeedback" class="form-control" rows="4" id="contactFeedbackid"></textarea>
+                                                       <textarea name="contactFeedback" class="form-control shadow-lg" rows="4" id="contactFeedbackid"></textarea>
                                                        <label for="contactFeedbackid">Your feedback</label>
                                                    </div>
                                                    <button class="btn text-white" style="background-color: #00B074;" type="submit">Create</button>

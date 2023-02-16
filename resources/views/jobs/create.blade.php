@@ -25,21 +25,21 @@
      box-shadow: none;
    }
    </style>
-       <div class="container">
+       <div class="container" style="margin-top: 1%">
            <section class="ftco-section">
-               <div class="container">
+               <div class="container shadow-lg p-3 mb-5 bg-body rounded">
                    <div class="row justify-content-center">
                        <div class="col-md-12">
                            <div class="wrapper">
                                <div class="row no-gutters">
-                                   <div class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch">
+                                   <div class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch ">
                                        <div class="contact-wrap w-100 p-md-5 p-4 mb-5">
                                            <h1 class="mb-4">Create A Job Post</h1>
                                                <form method="post" action="/createJob">
                                                 @csrf
                                                 <div class="input-group d-flex mb-3 align-items-stretch">
-                                                    <label class="input-group-text text-light-emphasis" for="inputGroupSelect01">Category</label>
-                                                    <select name="jobCategory" class="form-select" id="inputGroupSelect01" required>
+                                                    <label class="input-group-text text-light-emphasis shadow-sm" for="inputGroupSelect01">Category</label>
+                                                    <select name="jobCategory" class="form-select shadow-sm" id="inputGroupSelect01" required>
                                                         <option selected disabled>Pick a Category</option>
                                                         @foreach($categories as $category)
                                                             <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -47,19 +47,19 @@
                                                     </select>
                                                 </div>
                                                    <div class="form-floating mb-3">
-                                                       <input name="jobTitle" type="text" class="form-control" id="floatingTitle" placeholder="" required>
+                                                       <input name="jobTitle" type="text" class="form-control shadow-sm" id="floatingTitle" placeholder="" required>
                                                        <label for="floatingTitle" class="control-label">Title</label>
                                                    </div>
                                                    <div class="form-floating mb-3">
-                                                       <textarea name="jobDesciption" class="form-control" rows="4" id="floatingDescr" required></textarea>
+                                                       <textarea name="jobDesciption" class="form-control shadow-sm" rows="4" id="floatingDescr" required></textarea>
                                                        <label for="floatingDescr" class="control-label">Description</label>
                                                    </div>
                                                    <div class="form-floating mb-3">
-                                                       <input name="jobSalary" type="number" class="form-control" id="floatingSalary" placeholder="" required>
+                                                       <input name="jobSalary" type="number" class="form-control shadow-sm" id="floatingSalary" placeholder="" required>
                                                        <label for="floatingSalary" class="control-label">Salary</label>
                                                    </div>
                                                    <div class="form-floating">
-                                                       <input name="jobPosition"  type="text" class="form-control" id="floatingPosition" placeholder="" required>
+                                                       <input name="jobPosition"  type="text" class="form-control shadow-sm" id="floatingPosition" placeholder="" required>
                                                        <label for="floatingPosition" class="control-label">Position</label>
                                                    </div>
                                                    <div style="margin: 1em 0em 1em 0em;">
@@ -69,7 +69,7 @@
                                                                <span class="input-group-text">+389</span>
                                                            </div>
                                                            <div class="col-9">
-                                                               <input name="jobPhoneNr" type="text" class="form-control d-flex" required>
+                                                               <input name="jobPhoneNr" type="text" class="form-control d-flex shadow-sm" required>
                                                            </div>
                                                        </div>
                                                    </div>

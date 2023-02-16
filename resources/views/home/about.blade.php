@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="container">
-        <section class="ftco-section">
+        <section class="ftco-section shadow-lg">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-12">
