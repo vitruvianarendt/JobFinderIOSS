@@ -19,7 +19,8 @@
                         <x-nav-link :href="route('applications')" :active="request()->routeIs('applications')" class="text-white">
                             {{ __('Applications') }}
                         </x-nav-link>
-                    @else
+                    @endif
+                    @if(Auth::user() && Auth::user()->user_type == 'Personal_Account')
                         <x-nav-link :href="route('my.applications')" :active="request()->routeIs('my.applications')" class="text-white">
                             {{ __('My Applications') }}
                         </x-nav-link>
