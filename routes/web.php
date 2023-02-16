@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CvController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
@@ -35,10 +36,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
     // Jobs
     Route::get('/jobs', [JobController::class, 'index'])->name('jobs');
-//    Route::get('/jobs/{city}', [JobController::class, 'viewJobsCity'])->name('jobsCity');
     Route::get('/createJob', [JobController::class, 'create'])->name('createJob');
     Route::post('/createJob', [JobController::class, 'store']);
     Route::get('/editJob/{id}', [JobController::class, 'edit']);
@@ -48,6 +47,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/myApplications', [JobController::class, 'viewMyApplications'])->name('my.applications');
     Route::get('/applications', [JobController::class, 'jobApplications'])->name('applications');
     Route::post('/applyApplication/{id}', [JobController::class, 'createApplication']);
+    // CV
+    Route::get('/resume', [CvController::class, 'create'])->name('resume');
+    Route::post('/resume', [CvController::class, 'store']);
+
+
 });
 
 //FOR ADMIN ROUTES
