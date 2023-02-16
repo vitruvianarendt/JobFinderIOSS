@@ -146,11 +146,9 @@ class JobController extends Controller
     }
 
     public function jobApplications(Request $request){
-        // $recjobs = Job::where('user_id', auth()->id())->get();
-        // $user = auth()->user();
-        // $allusers = User::all();
-        // $applications = DB::select('select * from jobsmk.applications');
-        return view('jobs.applications');
+        $data = DB::select("SELECT u.id as user_id, a.id as application_id,j.user_id as recruiter_id,u.name,u.gender,u.email,u.phone as user_phonenr, u.current_position , a.created_at as application_date, j.title as job_title, j.description as job_description ,j.salary as job_salary , j.position as job_position ,j.phone as job_phone_nr,j.city, j.type, j.created_at as job_creation from users as u inner join applications as a on u.id= a.user_id inner join jobs as j on a.job_id=j.id");
+        $current_user = auth()->user();
+        return view('jobs.applications', ['data'=> $data, 'current_user' => $current_user]);
     }
 
     public function createApplication(Request $request, $id){
