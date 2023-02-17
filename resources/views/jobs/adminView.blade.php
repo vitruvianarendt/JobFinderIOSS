@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-8xl mx-auto sm:px-6 lg:px-12">
             @if(session()->get('success'))
                 <div class="alert alert-success">
                 {{ session()->get('success') }}  
@@ -23,6 +23,7 @@
                         <th>Type</th>
                         <th>City</th>
                         <th>User</th>
+                        <th>Tags</th>
                         <th>Created at</th>
                         <th>Action</th>
                     </tr>
@@ -38,6 +39,11 @@
                         <td>{{ $job->type }}</td>
                         <td>{{ $job->city }}</td>
                         <td>{{ $job->getUserName() }}</td>
+                        <td>
+                            @foreach($job->tags as $tag)
+                                <small><label class="badge" style="background-color: #00b074">{{ $tag->name }}</label></small>
+                            @endforeach
+                        </td>
                         <th>{{ $job->created_at->format('Y-m-d') }}</th>
                         <th class="d-flex">
                             <form action="/admin/deleteJob/{{ $job->id }}" method="post">

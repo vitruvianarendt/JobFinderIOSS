@@ -1,4 +1,5 @@
 <x-app-layout>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet" />
 <style>
     label.input-group-text {
         margin: 0 !important;
@@ -24,6 +25,16 @@
    .form-group input:focus {
      box-shadow: none;
    }
+   .bootstrap-tagsinput .tag{
+            margin-right: 2px;
+            color: #ffffff;
+            background: #00B074;
+            padding: 3px 7px;
+            border-radius: 3px;
+    }
+    .bootstrap-tagsinput {
+         width: 100%;
+    }
    </style>
        <div class="container" style="margin-top: 1%">
            <section class="ftco-section">
@@ -111,6 +122,16 @@
                                                          <option value="Studenicani">Studenicani</option>
                                                        </select>
                                                    </div>
+                                                   <div class="input-group mb-3">
+                                                    <div class="row">
+                                                          <div class="col-1">
+                                                              <label for="tagsinputid">Tags:</label>
+                                                         </div>
+                                                         <div class="col-11">
+                                                             <input id="tagsinputid" class="form-control" type="text" data-role="tagsinput" name="job_tags">
+                                                         </div>
+                                                        </div>                                                    
+                                                    </div>
                                                    <button class="btn text-white" style="background-color: #00B074;" type="submit">Create</button>
                                            </form>
                                        </div>
@@ -160,4 +181,6 @@
                </div>
            </section>
        </div>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
 </x-app-layout>

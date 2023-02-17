@@ -6,10 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
 class Job extends Model
 {
-    
     protected $guarded = [];
 
     protected $fillable = [
@@ -64,4 +62,5 @@ class Job extends Model
     }
 
     use HasFactory;
+    use \Conner\Tagging\Taggable;
 }
