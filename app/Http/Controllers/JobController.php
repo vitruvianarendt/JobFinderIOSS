@@ -87,6 +87,8 @@ class JobController extends Controller
             'user_id' => $userId
         ]);
 
+        $job_tags = explode(",", $request->job_tags);
+        $job->tag($job_tags);
         $job->save();
         return redirect('/')->with('success', 'Job added succesfully.');
     }

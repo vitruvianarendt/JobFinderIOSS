@@ -1,11 +1,4 @@
 <x-app-layout>
-
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.4/js/buttons.html5.min.js">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.4/js/buttons.print.min.js"> --}}
-
     <script>
         $(document).ready(function() {
     $('#mytable').DataTable();
@@ -26,16 +19,6 @@
         background: grey;
         top: 10%;
         box-shadow: 0px 0px 30px 20px grey;
-    }
-    .list-group-item:active {
-        background-color: #00b074 !important;
-    }
-    .list-group-item:visited{
-        background-color: #00b074 !important;
-    }
-    .list-group-item:hover {
-        background-color: #00b074 !important;
-        color: white;
     }
     </style>
     <div class="container-fluid" style="margin-top: 2%;width: 90%; margin-left: auto;margin-right:auto;">
@@ -75,7 +58,7 @@
                         <td>{{$d->email}}</td>
                         <td>{{$d->user_phonenr}}</td>
                         <td>{{ \Carbon\Carbon::parse($d->application_date)->format('d/m/Y')}}</td>
-                        <td><a href="">Download</a></td>
+                        <td><a href=""><i class="fa fa-download" aria-hidden="true"></i> Download</a></td>
                         </tr>
                      @endif
                 @endforeach

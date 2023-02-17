@@ -52,7 +52,14 @@
                                         <p class="pt-2"
                                            style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                         <br>
-                                     <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ <br><i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
+                                     <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ <i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
+                                        <hr>
+                                        @if($job->tags->count())
+                                            <strong>Tags:</strong>
+                                            @foreach($job->tags as $tag)
+                                            <label class="badge" style="background-color: #00b074">{{ $tag->name }}</label>
+                                            @endforeach
+                                        @endif
                                     </div>
                                     <div class="col-2 text-center align-self-center">
                                         <button class="px-4 py-3 text-white rounded" style="background-color: #305d4e;margin-right: 20%;" disabled>Applied</button>

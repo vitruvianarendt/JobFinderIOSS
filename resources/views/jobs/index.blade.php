@@ -5,6 +5,16 @@
         font-size: large;
     }
 
+    .bootstrap-tagsinput .tag {
+            margin-right: 2px;
+            color: #ffffff;
+            background: #00b074;
+            padding: 3px 7px;
+            border-radius: 3px;
+    }
+    .bootstrap-tagsinput {
+         width: 100%;
+    }
 </style>
 
 <x-app-layout>
@@ -26,7 +36,14 @@
                                 <p class="pt-2"
                                    style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                 <br>
-                                <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ <br><i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
+                                <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ &nbsp;<i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
+                                                <hr>
+                                                @if($job->tags->count())
+                                                <strong>Tags:</strong>
+                                                @foreach($job->tags as $tag)
+                                                   <label class="badge" style="background-color: #00b074">{{ $tag->name }}</label>
+                                                @endforeach
+                                                @endif
                             </div>
                             @if(Auth::user() && Auth::user()->user_type == 'Personal_Account')
                                 <div class="col-2 text-center align-self-center">
@@ -84,7 +101,14 @@
                                         <p class="pt-2"
                                            style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                         <br>
-                                     <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ <br><i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
+                                        <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ &nbsp;<i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p> 
+                                                <hr>
+                                                @if($job->tags->count())
+                                                <strong>Tags:</strong>
+                                                @foreach($job->tags as $tag)
+                                                   <label class="badge" style="background-color: #00b074">{{ $tag->name }}</label>
+                                                @endforeach
+                                                @endif
                                     </div>
                                     @if(Auth::user() && Auth::user()->user_type == 'Personal_Account')
                                         <div class="col-2 text-center align-self-center">
@@ -121,8 +145,15 @@
                                         <p class="pt-2"
                                            style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                         <br>
-                                         <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ <br><i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
-                                    </div>
+                                         <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ &nbsp;<i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
+                                                <hr>
+                                                 @if($job->tags->count())
+                                                <strong>Tags:</strong>
+                                                 @foreach($job->tags as $tag)
+                                                     <label class="badge" style="background-color: #00b074">{{ $tag->name }}</label>
+                                                 @endforeach
+                                                 @endif
+                                        </div>
                                     @if(Auth::user() && Auth::user()->user_type == 'Personal_Account')
                                         <div class="col-2 text-center align-self-center">
                                             @if($job->userHasApplied())
@@ -158,8 +189,15 @@
                                         <p class="pt-2"
                                            style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                         <br>
-                                          <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ <br><i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
-                                    </div>
+                                          <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ &nbsp;<i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
+                                          <hr>
+                                             @if($job->tags->count())
+                                                <strong>Tags:</strong>
+                                                 @foreach($job->tags as $tag)
+                                                  <label class="badge" style="background-color: #00b074">{{ $tag->name }}</label>
+                                                 @endforeach
+                                             @endif
+                                        </div>
                                     @if(Auth::user() && Auth::user()->user_type == 'Personal_Account')
                                         <div class="col-2 text-center align-self-center">
                                             @if($job->userHasApplied())
@@ -195,7 +233,14 @@
                                         <p class="pt-2"
                                            style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                         <br>
-                                        <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ <br><i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
+                                        <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ &nbsp;<i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
+                                        <hr>
+                                            @if($job->tags->count())
+                                                 <strong>Tags:</strong>
+                                                 @foreach($job->tags as $tag)
+                                                 <label class="badge" style="background-color: #00b074">{{ $tag->name }}</label>
+                                                 @endforeach
+                                             @endif
                                     </div>
                                     @if(Auth::user() && Auth::user()->user_type == 'Personal_Account')
                                         <div class="col-2 text-center align-self-center">
