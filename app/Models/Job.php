@@ -21,6 +21,7 @@ class Job extends Model
         'city',
         'type',
         'role',
+        'img_path'
     ];
 
     public function isAdmin() {

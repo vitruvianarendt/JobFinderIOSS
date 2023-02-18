@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('city');
             $table->string('type');
             $table->timestamps();
+            $table->string('img_path')->nullable();
         });
     }
 

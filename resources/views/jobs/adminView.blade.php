@@ -15,6 +15,7 @@
             <table id="example" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
+                        <th>Logo</th>
                         <th>Category</th>
                         <th>Title</th>
                         <th>Salary</th>
@@ -31,6 +32,9 @@
                 <tbody>
                     @foreach($jobs as $job)
                     <tr>
+                        <td>
+                        <img class="shadow-lg" src="{{asset('images/job_images/'.$job->img_path)}}" alt="" style="max-width: 50px;max-height: 50px">
+                        </td>
                         <td>{{ $job->getCategoryName() }}</td>
                         <td>{{ $job->title }}</td>
                         <td>{{ $job->salary }}</td>

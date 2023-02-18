@@ -27,7 +27,6 @@ return new class extends Migration
             $table->string('user_type')->default('Personal_Account');
         });
     }
-
     /**
      * Reverse the migrations.
      *
