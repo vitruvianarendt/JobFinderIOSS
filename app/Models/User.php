@@ -25,6 +25,7 @@ class User extends Authenticatable
         'phone',
         'current_position',
         'user_type',
+        'img_path'
     ];
 
     /**

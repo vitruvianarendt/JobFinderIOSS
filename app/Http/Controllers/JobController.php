@@ -64,6 +64,7 @@ class JobController extends Controller
     {
         $request->validate([
             'jobTitle' => ['required', 'max:255'],
+            'img_path' => ['image|mimes:jpg,png,jpeg,gif,svg|max:8192'],
             'jobCategory' => 'required',
             'jobDesciption' => 'required',
             'jobSalary' => ['required', 'numeric'],
@@ -75,9 +76,14 @@ class JobController extends Controller
 
         $userId = Auth()->id();
         
-        $file_name = $request->job_img->getClientOriginalName();
-        $current_job_img_path = time().$file_name;
-        $request->job_img->move(public_path('images/job_images'),$current_job_img_path);
+
+        if($request->job_img==null){
+            $current_job_img_path = null;
+        }else {
+            $file_name = $request->job_img->getClientOriginalName();
+            $current_job_img_path = time().$file_name;
+            $request->job_img->move(public_path('images/job_images'),$current_job_img_path);
+        }
         $job = Job::create([
             'title' => $request->jobTitle,
             'category_id' => $request->jobCategory,

@@ -1,14 +1,28 @@
 <section>
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Profile Information') }}
-        </h2>
-
-        <p class="mt-1 text-sm text-gray-600">
-            {{ __("Update your account's profile information and email address.") }}
-        </p>
+        <div class="row">
+            <div class="col-9">
+                <h2 class="text-lg font-medium text-gray-900">
+                    {{ __('Profile Information') }}
+                </h2>
+        
+                <p class="mt-1 text-sm text-gray-600">
+                    {{ __("Update your account's profile information and email address.") }}
+                </p>
+            </div>
+            <div class="col-3">
+                @if($user->img_path==null)
+                            @if($user->gender=="Male")
+                            <img src="{{url('images/male.png')}}" style="max-width:100px;max-height: 100px;margin-top:-65px" alt="User" class="rounded-circle mt-1" width="100px">
+                            @else
+                            <img src="{{url('images/female.png')}}" style="max-width:100px;max-height: 100px;margin-top:-65px" alt="User" class="rounded-circle mt-1" width="100px">
+                            @endif
+                        @else
+                            <img src="{{asset('images/user_profile_img/'.$user->img_path)}}" style="max-width:100px;max-height: 100px;margin-top:-65px" alt="User" class="rounded-circle mt-1" width="300px" height="100px">
+                        @endif
+            </div>
+        </div>
     </header>
-
     <form id="send-verification" method="post" action="{{ route('verification.send') }}">
         @csrf
     </form>

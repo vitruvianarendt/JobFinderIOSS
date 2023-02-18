@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('current_position');
             $table->string('gender')->default('Male');
             $table->string('user_type')->default('Personal_Account');
+            $table->string('img_path')->nullable();
         });
     }
     /**
