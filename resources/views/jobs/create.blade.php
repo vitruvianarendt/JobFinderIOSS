@@ -46,7 +46,7 @@
                                    <div class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch ">
                                        <div class="contact-wrap w-100 p-md-5 p-4 mb-5">
                                            <h1 class="mb-4">Create A Job Post</h1>
-                                               <form method="post" action="/createJob">
+                                               <form method="post" action="/createJob" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="input-group d-flex mb-3 align-items-stretch">
                                                     <label class="input-group-text text-light-emphasis shadow-sm" for="inputGroupSelect01">Category</label>
@@ -122,6 +122,16 @@
                                                          <option value="Studenicani">Studenicani</option>
                                                        </select>
                                                    </div>
+                                                    <div style="margin: 1em 0em 1em 0em;">
+                                                        <div class="input-group d-flex mb-3">
+                                                            <div class="col-2 d-flex mx-0">
+                                                                <span class="input-group-text text-light-emphasis control-label">Job Logo</span>
+                                                            </div>
+                                                            <div class="col-10">
+                                                                <input name="job_img"  type="file" class="form-control shadow-sm" id="job_imgid" placeholder="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                    <div class="input-group mb-3">
                                                     <div class="row">
                                                           <div class="col-1">

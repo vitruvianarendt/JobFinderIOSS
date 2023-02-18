@@ -28,16 +28,18 @@
                 <ul>
                     <div class="card">
                         <div class="row">
-                            <div class="col-2">
-                                <img src="">
+                            <div class="col-3">
+                                <div class="d-flex justify-content-center align-items-center p-2" style="height: 100%;">
+                                    <img class="shadow-lg" src="{{asset('images/job_images/'.$job->img_path)}}" alt="" style="max-width: 200px;max-height: 200px">
+                                </div>
                             </div>
-                            <div class="col-8">
+                            <div class="col-9">
                                 <h2 style="font-size: 1.5rem" class="pt-6 mt-3">{{ $job->title }}</h2>
                                 <p class="pt-2"
                                    style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                 <br>
                                 <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ &nbsp;<i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
-                                                <hr>
+                                                <hr style="width: 80%;">
                                                 @if($job->tags->count())
                                                 <strong>Tags:</strong>
                                                 @foreach($job->tags as $tag)
@@ -93,16 +95,18 @@
                         <ul>
                             <div class="card">
                                 <div class="row">
-                                    <div class="col-2">
-                                        <img src="">
+                                    <div class="col-3">
+                                        <div class="d-flex justify-content-center align-items-center p-2" style="height: 100%;">
+                                            <img class="shadow-lg" src="{{asset('images/job_images/'.$job->img_path)}}" alt="" style="max-width: 200px;max-height: 200px">
+                                        </div>
                                     </div>
-                                    <div class="col-8">
+                                    <div class="col-9">
                                         <h2 style="font-size: 1.5rem" class="pt-6 mt-3">{{ $job->title }}</h2>
                                         <p class="pt-2"
                                            style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                         <br>
                                         <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ &nbsp;<i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p> 
-                                                <hr>
+                                                <hr style="width: 80%;">
                                                 @if($job->tags->count())
                                                 <strong>Tags:</strong>
                                                 @foreach($job->tags as $tag)
@@ -137,16 +141,18 @@
                         <ul>
                             <div class="card">
                                 <div class="row">
-                                    <div class="col-2">
-                                        <img src="">
+                                    <div class="col-3">
+                                        <div class="d-flex justify-content-center align-items-center p-2" style="height: 100%;">
+                                            <img class="shadow-lg" src="{{asset('images/job_images/'.$job->img_path)}}" alt="" style="max-width: 200px;max-height: 200px">
+                                        </div>
                                     </div>
-                                    <div class="col-8">
+                                    <div class="col-9">
                                         <h2 style="font-size: 1.5rem" class="pt-6 mt-3">{{ $job->title }}</h2>
                                         <p class="pt-2"
                                            style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                         <br>
                                          <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ &nbsp;<i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
-                                                <hr>
+                                                <hr style="width: 80%;">
                                                  @if($job->tags->count())
                                                 <strong>Tags:</strong>
                                                  @foreach($job->tags as $tag)
@@ -181,16 +187,18 @@
                         <ul>
                             <div class="card">
                                 <div class="row">
-                                    <div class="col-2">
-                                        <img src="">
+                                    <div class="col-3">
+                                        <div class="d-flex justify-content-center align-items-center p-2" style="height: 100%;">
+                                            <img class="shadow-lg" src="{{asset('images/job_images/'.$job->img_path)}}" alt="" style="max-width: 200px;max-height: 200px">
+                                        </div>
                                     </div>
-                                    <div class="col-8">
+                                    <div class="col-9">
                                         <h2 style="font-size: 1.5rem" class="pt-6 mt-3">{{ $job->title }}</h2>
                                         <p class="pt-2"
                                            style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                         <br>
                                           <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ &nbsp;<i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
-                                          <hr>
+                                          <hr style="width: 80%">
                                              @if($job->tags->count())
                                                 <strong>Tags:</strong>
                                                  @foreach($job->tags as $tag)
@@ -225,16 +233,18 @@
                         <ul>
                             <div class="card">
                                 <div class="row">
-                                    <div class="col-2">
-                                        <img src="">
+                                    <div class="col-3">
+                                        <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
+                                            <img class="shadow-lg" src="{{asset('images/job_images/'.$job->img_path)}}" alt="" style="max-width: 200px;max-height: 200px">
+                                        </div>
                                     </div>
-                                    <div class="col-8">
+                                    <div class="col-9">
                                         <h2 style="font-size: 1.5rem" class="pt-6 mt-3">{{ $job->title }}</h2>
                                         <p class="pt-2"
                                            style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                         <br>
                                         <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ &nbsp;<i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
-                                        <hr>
+                                        <hr style="width: 80%;">
                                             @if($job->tags->count())
                                                  <strong>Tags:</strong>
                                                  @foreach($job->tags as $tag)

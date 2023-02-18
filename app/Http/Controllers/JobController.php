@@ -74,7 +74,10 @@ class JobController extends Controller
         ]);
 
         $userId = Auth()->id();
-
+        
+        $file_name = $request->job_img->getClientOriginalName();
+        $current_job_img_path = time().$file_name;
+        $request->job_img->move(public_path('images/job_images'),$current_job_img_path);
         $job = Job::create([
             'title' => $request->jobTitle,
             'category_id' => $request->jobCategory,
@@ -84,7 +87,8 @@ class JobController extends Controller
             'phone' => $request->jobPhoneNr,
             'city' => $request->jobCity,
             'type' => $request->jobWorkType,
-            'user_id' => $userId
+            'user_id' => $userId,
+            'img_path' => $current_job_img_path
         ]);
 
         $job_tags = explode(",", $request->job_tags);
