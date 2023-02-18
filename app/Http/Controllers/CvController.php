@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Cv;
-use App\Models\Job;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -12,47 +10,23 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class CvController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Application|Factory|View
-     */
-//    public function index(Request $request)
-//    {
-//        $city = $request->city;
-//        $jobs = Job::all();
-//        $site = Job::where('type', 'On-site')->get();
-//        $remote = Job::where('type', 'Remote')->get();
-//        $hybrid = Job::where('type', 'Hybrid')->get();
-//        $cityJobs = Job::where('city', $city)->get();
-//        return view('jobs.index',['jobs' => $jobs, 'site' => $site, 'remote' => $remote, 'hybrid' => $hybrid, 'city' => $city, 'cityJobs'=> $cityJobs]);
-//    }
-//
-//    public function getAllJobsAdmin()
-//    {
-//        $jobs = Job::all();
-//        return view('jobs.adminView',['jobs' => $jobs]);
-//    }
-//
-//    public function deleteJobAdmin($id)
-//    {
-//        Job::find($id)->delete();
-//        return redirect('/admin/jobs')->with('success', 'Job successfully deleted.');
-//    }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return Application|Factory|View
      */
-    public function create()
+    public function create(): View|Factory|Application
     {
-        return view('cv.index');
+        $userId = Auth()->id();
+        $cv = Cv::where('user_id', $userId)->first();
+
+        return view('cv.index', ['cv' => $cv]);
     }
 
     /**
@@ -65,101 +39,121 @@ class CvController extends Controller
      {
         $request->validate([
             'name' => 'required',
+            'age' => 'required',
             'profession' => 'required',
+            'country' => 'required',
+            'city' => 'required',
+            'zip' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'workdescription' => 'required',
+            'degree' => 'required',
+            'uni' => 'required',
+            'gradyear' => 'required',
+            'skills' => 'required',
+            'summary' => 'required',
         ]);
 
         $userId = Auth()->id();
 
         $cv = Cv::create([
+            'user_id' => $userId,
             'name' => $request->name,
+            'age' => $request->age,
             'profession' => $request->profession,
-
+            'country' => $request->country,
+            'city' => $request->city,
+            'zip' => $request->zip,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'workdescription' => $request->workdescription,
+            'degree' => $request->degree,
+            'uni' => $request->uni,
+            'gradyear' => $request->gradyear,
+            'skills' => $request->skills,
+            'summary' => $request->summary,
         ]);
 
         $cv->save();
-        return redirect('/')->with('success', 'Job added succesfully.');
+        return redirect('/preview')->with('success', 'CV created successfully.');
      }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Job  $job
-     * @return Response
+     * @return Application|Factory|View
      */
-    public function show(Job $job)
+    public function preview(): Application|Factory|View
     {
-        //
+        $userId = Auth()->id();
+        $cv = Cv::where('user_id', $userId)->first();
+        return view('cv.preview', ['cv' => $cv]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Job  $job
-     * @return Response
-     */
-    public function edit($id)
+    public function createPDF(): Response
     {
-//        $job = Job::find($id);
-//        return view('jobs.edit', compact('job'));
+        $userId = Auth()->id();
+        $cv = Cv::where('user_id', $userId)->first();
+        view()->share('cv',$cv);
+        $pdf = PDF::loadView('cv.preview');
+        return $pdf->download('my_cv.pdf');
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param  \App\Models\Job  $job
-     * @return Response
+     * @return Application|Redirector|RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-//        $request->validate([
-//            'title' => ['required', 'max:255'],
-//            'category' => 'required',
-//            'description' => 'required',
-//            'salary' => ['required', 'numeric'],
-//            'position' => 'required',
-//            'phone' => ['required', 'numeric'],
-//            'address' => 'required',
-//            'type' => 'required'
-//        ]);
-//        $job = Job::find($id);
-//        // TODO
-//        $job->save();
-//
-//        return redirect('/jobs')->with('success', 'Job updated.');
-    }
-    public function viewMyApplications(Request $request){
-//        $jobsIds = DB::table('applications')->where('user_id',Auth::id())->pluck('job_id')->toArray();
-//        $jobs = Job::whereIn('id', $jobsIds)->get();
-//        return view('jobs.myApplications',['jobs' => $jobs, 'user'=> $request->user()]);
-    }
+        $request->validate([
+            'name' => 'required',
+            'age' => 'required',
+            'profession' => 'required',
+            'country' => 'required',
+            'city' => 'required',
+            'zip' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'workdescription' => 'required',
+            'degree' => 'required',
+            'uni' => 'required',
+            'gradyear' => 'required',
+            'skills' => 'required',
+            'summary' => 'required',
+        ]);
 
-    public function jobApplications(Request $request){
-//        $data = DB::select("SELECT u.id as user_id, a.id as application_id,j.user_id as recruiter_id,u.name,u.gender,u.email,u.phone as user_phonenr, u.current_position , a.created_at as application_date, j.title as job_title, j.description as job_description ,j.salary as job_salary , j.position as job_position ,j.phone as job_phone_nr,j.city, j.type, j.created_at as job_creation from users as u inner join applications as a on u.id= a.user_id inner join jobs as j on a.job_id=j.id");
-//        $current_user = auth()->user();
-//        return view('jobs.applications', ['data'=> $data, 'current_user' => $current_user]);
-    }
-
-    public function createApplication(Request $request, $id){
-//        $userId = Auth()->id();
-//
-//        DB::table('applications')->insert([
-//            ['user_id' => $userId, 'job_id' => $id, 'created_at' => new DateTime(), 'updated_at' => new DateTime()]
-//        ]);
-//        // to be uncommented
-//        // return redirect('/myApplications')->with('success', 'Application created succesfully.');
-//        return redirect('/jobs');
+        $userId = Auth()->id();
+        $cv = Cv::where('user_id', $userId)->first();
+        $cv->name = $request->name;
+        $cv->age = $request->age;
+        $cv->profession = $request->profession;
+        $cv->country = $request->country;
+        $cv->city =$request->city;
+        $cv->zip = $request->zip;
+        $cv->phone = $request->phone;
+        $cv->email = $request->email;
+        $cv->workdescription = $request->workdescription;
+        $cv->degree = $request->degree;
+        $cv->uni = $request->uni;
+        $cv->gradyear = $request->gradyear;
+        $cv->skills = $request->skills;
+        $cv->summary = $request->summary;
+        $cv->save();
+        return redirect('/preview')->with('success', 'CV edited successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Job  $job
-     * @return Response
+     * @return Application|Redirector|RedirectResponse
      */
-    public function destroy($id)
+    public function destroy()
     {
-//        Job::find($id)->delete();
-//        return redirect('/jobs')->with('success', 'Job succesfully deleted.');
+        $userId = Auth()->id();
+        $cv = Cv::where('user_id', $userId)->first();
+        $cv -> delete();
+        return redirect('/')->with('success', 'CV successfully deleted.');
     }
 }

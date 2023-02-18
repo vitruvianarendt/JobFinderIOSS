@@ -28,6 +28,9 @@
                     <x-nav-link :href="route('jobs')" :active="request()->routeIs('jobs')" class="text-white">
                         {{ __('All Jobs') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('resume')" :active="request()->routeIs('resume')" class="text-white">
+                        {{ __('My CV') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('about')" :active="request()->routeIs('about')" class="text-white">
                         {{ __('About Us') }}
                     </x-nav-link>

@@ -50,6 +50,10 @@ Route::middleware('auth')->group(function () {
     // CV
     Route::get('/resume', [CvController::class, 'create'])->name('resume');
     Route::post('/resume', [CvController::class, 'store']);
+    Route::post('/resumeUpdate', [CvController::class, 'update']);
+    Route::get('/preview', [CvController::class, 'preview'])->name('preview');
+    Route::get('/pdf', [CvController::class, 'createPDF']);
+
 
 
 });

@@ -1,0 +1,36 @@
+{
+    "font awesome 6 brands": {
+        "normal": "font_awesome_6_brands_normal_ba95da0e0ed26cb50aa2f3bfa6de4224"
+    },
+    "font awesome 6 free": {
+        "normal": "H:\\Projects\\PhpstormProjects\\JobFinderIOSS\\storage\\fonts\/font_awesome_6_free_normal_d14e05f732166b536c9f3e3c128da324",
+        "900": "font_awesome_6_free_900_fc6b653d35d5d856773a176618f15b8a"
+    },
+    "font awesome 5 brands": {
+        "normal": "font_awesome_5_brands_normal_ba95da0e0ed26cb50aa2f3bfa6de4224"
+    },
+    "font awesome 5 free": {
+        "900": "H:\\Projects\\PhpstormProjects\\JobFinderIOSS\\storage\\fonts\/font_awesome_5_free_900_fc6b653d35d5d856773a176618f15b8a",
+        "normal": "font_awesome_5_free_normal_d14e05f732166b536c9f3e3c128da324"
+    },
+    "fontawesome": {
+        "normal": "fontawesome_normal_e1a313ca83905f53a32ee29693775520"
+    },
+    "lora": {
+        "italic": "H:\\Projects\\PhpstormProjects\\JobFinderIOSS\\storage\\fonts\/lora_italic_7e613e263846f8ab6dfb0ff709f3169f",
+        "normal": "H:\\Projects\\PhpstormProjects\\JobFinderIOSS\\storage\\fonts\/lora_normal_4d4c7d838e620bb9af8b1f50e0a9500c",
+        "bold": "lora_bold_db391825a5818a9f451890daa7f590e1"
+    },
+    "open sans": {
+        "300": "H:\\Projects\\PhpstormProjects\\JobFinderIOSS\\storage\\fonts\/open_sans_300_3991bff746d3377656ad3cf53b24fe9e",
+        "normal": "H:\\Projects\\PhpstormProjects\\JobFinderIOSS\\storage\\fonts\/open_sans_normal_0c50822862df0e4bc3da7bec4af72b54",
+        "500": "H:\\Projects\\PhpstormProjects\\JobFinderIOSS\\storage\\fonts\/open_sans_500_57eeba9ef307f9b3d1a698f8ac69091b",
+        "bold": "open_sans_bold_16020d134f3ca847d8cdba64e3e9ca33"
+    },
+    "shadows into light": {
+        "normal": "shadows_into_light_normal_775f59a59157e7a3e98a9267ca88600b"
+    },
+    "waiting for the sunrise": {
+        "normal": "waiting_for_the_sunrise_normal_8ecc29c37a995ae11cef6fb15260fedd"
+    }
+}

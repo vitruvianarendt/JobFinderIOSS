@@ -1,6 +1,4 @@
 <x-app-layout>
-    
-    
     <body>
         <div class="container p-2">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 gutters-sm">
@@ -18,7 +16,7 @@
                         <h5 class="card-title">{{$user->name}}</h5>
                         <h5 class="card-title">{{$user->email}}</h5>
                         <div class="card-body">
-                        <p>{{$user->gender}}</p>   
+                        <p>{{$user->gender}}</p>
                         <p>Phone Number: {{$user->phone}}<br/>Joined: {{$user->created_at->diffForHumans()}}</p>
                         <p class="text-secondary mb-1">
                             @if($user->current_position==null)
@@ -27,7 +25,7 @@
                                 {{$user->current_position}}
                             @endif
                         </p>
-                        </div> 
+                        </div>
                       </div>
                       <div class="card-footer">
                       </div>
