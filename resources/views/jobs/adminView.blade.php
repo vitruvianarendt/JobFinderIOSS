@@ -33,7 +33,11 @@
                     @foreach($jobs as $job)
                     <tr>
                         <td>
-                        <img class="shadow-lg" src="{{asset('images/job_images/'.$job->img_path)}}" alt="" style="max-width: 50px;max-height: 50px">
+                            @if($job->img_path==null)
+                            <img src="{{url('images/jobfinderlogo.png')}}" alt="" style="max-width: 50px;max-height: 50px">
+                            @else
+                            <img class="shadow" src="{{asset('images/job_images/'.$job->img_path)}}" alt="" style="max-width: 50px;max-height: 50px">
+                            @endif
                         </td>
                         <td>{{ $job->getCategoryName() }}</td>
                         <td>{{ $job->title }}</td>

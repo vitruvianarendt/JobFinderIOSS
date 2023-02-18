@@ -32,7 +32,8 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'gender' => ['required', 'string', 'max:255'],            
+            'gender' => ['required', 'string', 'max:255'],   
+            'img_path' => ['image|mimes:jpg,png,jpeg,gif,svg|max:8192'],        
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'phone_number' => ['required', 'string', 'max:255'],
             'current_position' => ['required', 'string', 'max:255'],
@@ -40,6 +41,13 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        if($request->profile_img==null){
+            $current_profile_img_path = null;
+        }else {
+            $file_name = $request->profile_img->getClientOriginalName();
+            $current_profile_img_path = time().$file_name;
+            $request->profile_img->move(public_path('images/user_profile_img'),$current_profile_img_path);
+        }
         $user = User::create([
             'name' => $request->name,
             'gender' => $request->gender,
@@ -48,6 +56,7 @@ class RegisteredUserController extends Controller
             'current_position' => $request->current_position,
             'user_type' => $request->user_type,
             'password' => Hash::make($request->password),
+            'img_path' => $current_profile_img_path
         ]);
 
         event(new Registered($user));

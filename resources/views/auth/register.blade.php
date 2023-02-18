@@ -1,16 +1,28 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
         @csrf
 
         <!-- Name -->
         <div class="mt-4">
-            <x-input-label for="name" :value="__('Name')" />
+            <x-input-label for="name" :value="__('Full Name')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
         <div class="mt-4">
             <label><input type="radio" name="gender" value="Male" checked> Male</label>
             <label><input type="radio" name="gender" value="Female"> Female</label>
+        </div>
+        <div class="mt-4">
+            <div style="margin: 1em 0em 1em 0em;">
+                <div class="input-group d-flex mb-3">
+                    <div class="col-2 d-flex mx-0">
+                        <span class="input-group-text text-light-emphasis control-label">Profile Picture</span>
+                    </div>
+                    <div class="col-10">
+                        <input name="profile_img"  type="file" class="form-control shadow-sm" id="profile_imgid" placeholder="">
+                    </div>
+                </div>
+            </div>
         </div>
         <div style="margin-top: 1.1em">
             <x-input-label for="genderid" :value="__('Current Job/Position')" />
