@@ -24,6 +24,7 @@ class Cv extends Model
         'uni',
         'gradyear',
         'skills',
-        'summary'
+        'summary',
+        'template_id'
     ];
 }

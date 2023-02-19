@@ -5,6 +5,31 @@
         color: black !important;
         font-size: large;
     }
+    [type=radio] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    input[type=radio]:checked + label>img {
+        border: 1px solid #fff;
+        box-shadow: 0 0 3px 3px #090;
+    }
+
+    /* Stuff after this is only to make things more pretty */
+    input[type=radio] + label>img {
+        width: 400px;
+        height: 550px;
+        transition: 500ms all;
+    }
+
+    input[type=radio]:checked + label>img {
+        transform:
+            rotateZ(-10deg)
+            rotateX(10deg);
+    }
+
 
 </style>
 
@@ -33,6 +58,11 @@
                     <a class="nav-link" id="summary-tab" data-toggle="tab" href="#summary" role="tab"
                        aria-controls="summary"
                        aria-selected="false">Summary</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="template-tab" data-toggle="tab" href="#template" role="tab"
+                       aria-controls="template"
+                       aria-selected="false">Template</a>
                 </li>
             </ul>
             <form method="post" action="/resume">
@@ -134,6 +164,18 @@
                                       required></textarea>
                                 <label for="summary" class="control-label px-3">Summary</label>
                             </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="template" role="tabpanel" aria-labelledby="template-tab">
+                        <div class="row d-flex justify-content-center mb-3 mt-5">
+                            <div class="col-4 mx-3">
+                                <input type="radio" id="1" name="template_id" value="1">
+                                <label for="1"><img src="{{ URL::to('/') }}/images/cv_images/cv1.png" alt="1"></label><br>
+                            </div>
+                            <div class="col-4">
+                                <input type="radio" id="2" name="template_id" value="2">
+                                <label for="2"><img src="{{ URL::to('/') }}/images/cv_images/cv2.png" alt="2"></label><br>
+                            </div>
                             <div class="col-9 d-flex justify-content-center mt-5">
                                 <button class="btn text-white mx-3" style="background-color: #00B074;" type="submit" href="../preview">Create and Preview</button>
                                 <a class="btn btn-dark mx-3" href="{{ URL::to('/pdf') }}">Export to PDF</a>
@@ -167,6 +209,11 @@
                     <a class="nav-link" id="summary-tab" data-toggle="tab" href="#summary" role="tab"
                        aria-controls="summary"
                        aria-selected="false">Summary</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="template-tab" data-toggle="tab" href="#template" role="tab"
+                       aria-controls="template"
+                       aria-selected="false">Template</a>
                 </li>
             </ul>
             <form method="post" action="/resumeUpdate">
@@ -268,6 +315,29 @@
                                       required>{{$cv->summary}}</textarea>
                                 <label for="summary" class="control-label px-3">Summary</label>
                             </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="template" role="tabpanel" aria-labelledby="template-tab">
+                        <div class="row d-flex justify-content-center mb-3 mt-5">
+                            @if($cv->template_id == 1)
+                                <div class="col-4">
+                                    <input type="radio" id="1" name="template_id" value="1" checked>
+                                    <label for="1"><img src="{{ URL::to('/') }}/images/cv_images/cv1.png" alt="1"></label><br>
+                                </div>
+                                <div class="col-4">
+                                    <input type="radio" id="2" name="template_id" value="2">
+                                    <label for="2"><img src="{{ URL::to('/') }}/images/cv_images/cv2.png" alt="2"></label><br>
+                                </div>
+                            @elseif($cv->template_id == 2)
+                                <div class="col-4">
+                                    <input type="radio" id="1" name="template_id" value="1">
+                                    <label for="1"><img src="{{ URL::to('/') }}/images/cv_images/cv1.png" alt="1"></label><br>
+                                </div>
+                                <div class="col-4">
+                                    <input type="radio" id="2" name="template_id" value="2" checked>
+                                    <label for="2"><img src="{{ URL::to('/') }}/images/cv_images/cv2.png" alt="2"></label><br>
+                                </div>
+                            @endif
                             <div class="col-9 d-flex justify-content-center mt-5">
                                 <button class="btn text-white mx-3" style="background-color: #00B074;" type="submit" href="../preview">Create and Preview</button>
                                 <a class="btn btn-dark mx-3" href="{{ URL::to('/pdf') }}">Export to PDF</a>

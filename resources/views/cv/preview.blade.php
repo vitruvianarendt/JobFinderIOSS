@@ -30,61 +30,119 @@
 
 <body>
 
-<div id="page-wrap">
+@if($cv->template_id == 1)
+    <div id="page-wrap">
 
-    <div id="contact-info" class="vcard">
+        <div id="contact-info" class="vcard">
 
-        <!-- Microformats! -->
+            <!-- Microformats! -->
 
-        <h1 class="fn">{{$cv->name}}</h1>
-        <h2 class="fn">{{$cv->profession}}</h2>
+            <h1 class="fn">{{$cv->name}}</h1>
+            <h2 class="fn">{{$cv->profession}}</h2>
 
-        <br>
+            <br>
             Cell: <span class="tel">{{$cv->phone}}</span><br />
             Email: <span class="tel">{{$cv->email}}</span><br />
             Year of Birth: <span class="tel">{{$cv->age}}</span><br />
             Address: <span class="tel">{{$cv->country}}, {{$cv->city}}, {{$cv->zip}} </span><br />
-        </p>
+            </p>
+        </div>
+
+        <div class="clear"></div>
+
+        <dl style="margin-top: 60px">
+            <dd class="clear"></dd>
+
+            <dt>Education</dt>
+            <dd>
+                <h2>{{$cv->uni}}</h2>
+                <p><strong>Title:</strong> {{$cv->degree}}<br />
+                    <strong>Graduation Year:</strong> {{$cv->gradyear}}</p>
+            </dd>
+
+            <dd class="clear"></dd>
+
+            <dt>Skills</dt>
+            <dd>
+                <h2>Skills</h2>
+                <p>{{$cv->skills}}</p>
+            </dd>
+
+            <dd class="clear"></dd>
+
+            <dt>Experience</dt>
+            <dd>
+                <h2>Work Experience</h2>
+                <p>{{$cv->workdescription}}</p>
+            </dd>
+            <dd class="clear"></dd>
+            <dt>Summary</dt>
+            <dd>
+                <h2>Work Experience</h2>
+                <p>{{$cv->summary}}</p>
+            </dd>
+        </dl>
+
+        <div class="clear"></div>
+
     </div>
+@elseif($cv->template_id == 2)
+    <div id="page-wrap" style="background-color: lightgrey">
 
-    <div class="clear"></div>
+        <div id="contact-info" class="vcard" style="background-color: #1a202c; color: whitesmoke; padding: 40px">
 
-    <dl style="margin-top: 60px">
-        <dd class="clear"></dd>
+            <!-- Microformats! -->
 
-        <dt>Education</dt>
-        <dd>
-            <h2>{{$cv->uni}}</h2>
-            <p><strong>Title:</strong> {{$cv->degree}}<br />
-                <strong>Graduation Year:</strong> {{$cv->gradyear}}</p>
-        </dd>
+            <h1 class="fn">{{$cv->name}}</h1>
+            <h2 class="fn">{{$cv->profession}}</h2>
 
-        <dd class="clear"></dd>
+            <br>
+            Cell: <span class="tel">{{$cv->phone}}</span><br />
+            Email: <span class="tel">{{$cv->email}}</span><br />
+            Year of Birth: <span class="tel">{{$cv->age}}</span><br />
+            Address: <span class="tel">{{$cv->country}}, {{$cv->city}}, {{$cv->zip}} </span><br />
+            </p>
+        </div>
 
-        <dt>Skills</dt>
-        <dd>
-            <h2>Skills</h2>
-            <p>{{$cv->skills}}</p>
-        </dd>
+        <div class="clear"></div>
 
-        <dd class="clear"></dd>
+        <dl style="margin-top: 60px">
+            <dd class="clear"></dd>
 
-        <dt>Experience</dt>
-        <dd>
-            <h2>Work Experience</h2>
-            <p>{{$cv->workdescription}}</p>
-        </dd>
-        <dd class="clear"></dd>
-        <dt>Summary</dt>
-        <dd>
-            <h2>Work Experience</h2>
-            <p>{{$cv->summary}}</p>
-        </dd>
-    </dl>
+            <dt style="background-color: #3d4852">Education</dt>
+            <dd>
+                <h2>{{$cv->uni}}</h2>
+                <p><strong>Title:</strong> {{$cv->degree}}<br />
+                    <strong>Graduation Year:</strong> {{$cv->gradyear}}</p>
+            </dd>
 
-    <div class="clear"></div>
+            <dd class="clear"></dd>
 
-</div>
+            <dt style="background-color: #3d4852">Skills</dt>
+            <dd>
+                <h2>Skills</h2>
+                <p>{{$cv->skills}}</p>
+            </dd>
+
+            <dd class="clear"></dd>
+
+            <dt style="background-color: #3d4852">Experience</dt>
+            <dd>
+                <h2>Work Experience</h2>
+                <p>{{$cv->workdescription}}</p>
+            </dd>
+            <dd class="clear"></dd>
+            <dt style="background-color: #3d4852">Summary</dt>
+            <dd>
+                <h2>Work Experience</h2>
+                <p>{{$cv->summary}}</p>
+            </dd>
+        </dl>
+
+        <div class="clear"></div>
+
+    </div>
+@endif
 
 </body>
 

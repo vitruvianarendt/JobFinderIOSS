@@ -31,6 +31,7 @@ return new class extends Migration
             $table->bigInteger('gradyear')->unsigned()->index()->nullable();
             $table->string('skills');
             $table->string('summary');
+            $table->bigInteger('template_id');
             $table->timestamps();
         });
     }

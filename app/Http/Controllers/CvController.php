@@ -52,6 +52,7 @@ class CvController extends Controller
             'gradyear' => 'required',
             'skills' => 'required',
             'summary' => 'required',
+            'template_id' => 'required',
         ]);
 
         $userId = Auth()->id();
@@ -72,6 +73,7 @@ class CvController extends Controller
             'gradyear' => $request->gradyear,
             'skills' => $request->skills,
             'summary' => $request->summary,
+            'template_id' => $request->template_id,
         ]);
 
         $cv->save();
@@ -126,6 +128,7 @@ class CvController extends Controller
             'gradyear' => 'required',
             'skills' => 'required',
             'summary' => 'required',
+            'template_id' => 'required',
         ]);
 
         $userId = Auth()->id();
@@ -144,6 +147,7 @@ class CvController extends Controller
         $cv->gradyear = $request->gradyear;
         $cv->skills = $request->skills;
         $cv->summary = $request->summary;
+        $cv->template_id = $request->template_id;
         $cv->save();
         return redirect('/preview')->with('success', 'CV edited successfully.');
     }
