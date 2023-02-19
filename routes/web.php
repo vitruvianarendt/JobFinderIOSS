@@ -38,6 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     // Jobs
     Route::get('/jobs', [JobController::class, 'index'])->name('jobs');
+    Route::get('/myJobOffers', [JobController::class, 'myJobOffers'])->name('myJobOffers');
     Route::get('/createJob', [JobController::class, 'create'])->name('createJob');
     Route::post('/createJob', [JobController::class, 'store']);
     Route::get('/editJob/{id}', [JobController::class, 'edit']);

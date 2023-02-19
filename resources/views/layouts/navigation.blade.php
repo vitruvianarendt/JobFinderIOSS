@@ -14,22 +14,25 @@
                 <div class="hidden text-decoration-none space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     @if(Auth::user() && Auth::user()->user_type != 'Personal_Account')
                         <x-nav-link :href="route('createJob')" :active="request()->routeIs('createJob')" class="text-white">
-                            {{ __('Create Job') }}
+                            {{ __('Create a Job') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('myJobOffers')" :active="request()->routeIs('myJobOffers')" class="text-white">
+                            {{ __('My Job Offers') }}
                         </x-nav-link>
                         <x-nav-link :href="route('applications')" :active="request()->routeIs('applications')" class="text-white">
                             {{ __('Applications') }}
                         </x-nav-link>
                     @endif
                     @if(Auth::user() && Auth::user()->user_type == 'Personal_Account')
+                    <x-nav-link :href="route('resume')" :active="request()->routeIs('resume')" class="text-white">
+                        {{ __('My CV') }}
+                    </x-nav-link>
                         <x-nav-link :href="route('my.applications')" :active="request()->routeIs('my.applications')" class="text-white">
                             {{ __('My Applications') }}
                         </x-nav-link>
                     @endif
                     <x-nav-link :href="route('jobs')" :active="request()->routeIs('jobs')" class="text-white">
                         {{ __('All Jobs') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('resume')" :active="request()->routeIs('resume')" class="text-white">
-                        {{ __('My CV') }}
                     </x-nav-link>
                     <x-nav-link :href="route('about')" :active="request()->routeIs('about')" class="text-white">
                         {{ __('About Us') }}

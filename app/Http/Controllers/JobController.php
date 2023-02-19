@@ -31,6 +31,12 @@ class JobController extends Controller
         return view('jobs.index',['jobs' => $jobs, 'site' => $site, 'remote' => $remote, 'hybrid' => $hybrid, 'city' => $city, 'cityJobs'=> $cityJobs]);
     }
 
+    public function myJobOffers()
+    {
+        $jobs = Job::where('user_id', Auth::id())->get();
+        return view('jobs.myJobOffers',['jobs' => $jobs]);
+    }
+
     public function getAllJobsAdmin()
     {
         $jobs = Job::all();
@@ -136,20 +142,22 @@ class JobController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => ['required', 'max:255'],
-            'category' => 'required',
-            'description' => 'required',
-            'salary' => ['required', 'numeric'],
-            'position' => 'required',
-            'phone' => ['required', 'numeric'],
-            'address' => 'required',
-            'type' => 'required'
+            'jobTitle' => ['required', 'max:255'],
+            'jobDesciption' => 'required',
+            'jobSalary' => ['required', 'numeric'],
+            'jobPosition' => 'required',
+            'jobPhoneNr' => ['required', 'numeric']
         ]);
+
         $job = Job::find($id);
-        // TODO
+        $job->title = $request->jobTitle;
+        $job->description = $request->jobDesciption;
+        $job->salary = $request->jobSalary;
+        $job->position = $request->jobPosition;
+        $job->phone = $request->jobPhoneNr;
         $job->save();
 
-        return redirect('/jobs')->with('success', 'Job updated.');
+        return redirect('/myJobOffers')->with('success', 'Job updated.');
     }
     public function viewMyApplications(Request $request){
         $jobsIds = DB::table('applications')->where('user_id',Auth::id())->pluck('job_id')->toArray();
@@ -183,6 +191,6 @@ class JobController extends Controller
     public function destroy($id)
     {
         Job::find($id)->delete();
-        return redirect('/jobs')->with('success', 'Job succesfully deleted.');
+        return redirect('/myJobOffers')->with('success', 'Job succesfully deleted.');
     }
 }
