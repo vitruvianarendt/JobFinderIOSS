@@ -15,9 +15,9 @@ Lorik Klenja 191530
 + [About](#about)
 + [Getting Started](#getting_started)
 
-+ [Prerequisites](#Prerequisites)
++ [Prerequisites](#prerequisites)
 
-+ [Usage ](#Usage )
++ [Usage ](#usage)
 
 ##  About <a name = "about"></a>
 
@@ -28,7 +28,7 @@ This document provides understanding of what is to be expected from the applicat
 In order to use application general knowledge for the computer systems is requried. 
 Application can be accessed through browsers (Google Chrome, Safari, etc.)
 
-###  Prerequisites
+###  Prerequisites <a name = "prerequisites"></a>
 
 Before using application first of all dependencies must be downloaded for this purpose following commandes must be executed in command line interface
 
@@ -36,7 +36,7 @@ Before using application first of all dependencies must be downloaded for this p
 ./user npm install
 ./user php artisan migrate
 ./user php artisan serve
-...........
+
 
   INFO  Server running on [http://127.0.0.1:8000].
 
@@ -45,7 +45,7 @@ After these commands one more command line iterface is opened for executing foll
 
 
 ./user npm run dev
-...........
+
 
     VITE v4.1.1  ready in 557 ms
 
@@ -58,7 +58,7 @@ After these commands one more command line iterface is opened for executing foll
   ➜  APP_URL: http://localhost
 
 
-##  Usage
+##  Usage <a name = "usage"></a>
 
 Before using the application, guest user must create an account for accesing all features from application. This is achieved simply clicking on register link which is located top right corner. Register form will show up and user must fill given fields. After this user automatically is redirected to home page.
 
