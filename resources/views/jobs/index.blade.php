@@ -38,11 +38,21 @@
                                 </div>
                             </div>
                             <div class="col-7">
-                                <h2 style="font-size: 1.5rem" class="pt-6 mt-3">{{ $job->title }}</h2>
-                                <p class="pt-2"
+                                <h1 style="font-size: 1.5rem" class="pt-6 mt-3">{{ $job->title }}</h1>
+                                <i style="" class="pt-6 mt-1">Position: {{$job->position}} 
+                                    &nbsp;Category:
+                                    @foreach($categories as $cat)
+                                        @if($job->category_id==$cat->id)
+                                            {{$cat->name}}
+                                        @endif
+                                    @endforeach
+                                
+                                </i>
+                                <hr width="90%">
+                                <p class="m-2"
                                    style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                 <br>
-                                <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ &nbsp;<i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
+                                <p class="m-2"><i class='fas fa-location-arrow' style="color:#00b074"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ &nbsp;<i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} &nbsp;<i class="fas fa-phone" style="color:#00b074;" aria-hidden="true"></i> {{$job->phone}}</p>
                                                 <hr style="width: 90%;">
                                                 @if($job->tags->count())
                                                 <strong>Tags:</strong>
@@ -111,11 +121,21 @@
                                         </div>
                                     </div>
                                     <div class="col-7">
-                                        <h2 style="font-size: 1.5rem" class="pt-6 mt-3">{{ $job->title }}</h2>
-                                        <p class="pt-2"
+                                        <h1 style="font-size: 1.5rem" class="pt-6 mt-3">{{ $job->title }}</h1>
+                                        <i style="" class="pt-6 mt-1">Position: {{$job->position}} 
+                                            &nbsp;Category:
+                                            @foreach($categories as $cat)
+                                                @if($job->category_id==$cat->id)
+                                                    {{$cat->name}}
+                                                @endif
+                                            @endforeach
+                                        
+                                        </i>
+                                        <hr width="90%">
+                                        <p class="m-2"
                                            style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                         <br>
-                                        <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ &nbsp;<i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
+                                        <p class="m-2"><i class='fas fa-location-arrow' style="color:#00b074"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ &nbsp;<i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}}&nbsp;<i class="fas fa-phone" style="color:#00b074;" aria-hidden="true"></i> {{$job->phone}} </p>
                                                 <hr style="width: 90%;">
                                                 @if($job->tags->count())
                                                 <strong>Tags:</strong>
@@ -163,18 +183,28 @@
                                         </div>
                                     </div>
                                     <div class="col-7">
-                                        <h2 style="font-size: 1.5rem" class="pt-6 mt-3">{{ $job->title }}</h2>
-                                        <p class="pt-2"
+                                        <h1 style="font-size: 1.5rem" class="pt-6 mt-3">{{ $job->title }}</h1>
+                                        <i style="" class="pt-6 mt-1">Position: {{$job->position}} 
+                                            &nbsp;Category:
+                                            @foreach($categories as $cat)
+                                                @if($job->category_id==$cat->id)
+                                                    {{$cat->name}}
+                                                @endif
+                                            @endforeach
+                                        
+                                        </i>
+                                        <hr width="90%">
+                                        <p class="m-2"
                                            style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                         <br>
-                                         <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ &nbsp;<i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
+                                        <p class="m-2"><i class='fas fa-location-arrow' style="color:#00b074"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ &nbsp;<i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}}&nbsp;<i class="fas fa-phone" style="color:#00b074;" aria-hidden="true"></i> {{$job->phone}} </p>
                                                 <hr style="width: 90%;">
-                                                 @if($job->tags->count())
+                                                @if($job->tags->count())
                                                 <strong>Tags:</strong>
-                                                 @foreach($job->tags as $tag)
-                                                     <label class="badge" style="background-color: #00b074">{{ $tag->name }}</label>
-                                                 @endforeach
-                                                 @endif
+                                                @foreach($job->tags as $tag)
+                                                   <label class="badge" style="background-color: #00b074">{{ $tag->name }}</label>
+                                                @endforeach
+                                                @endif
                                         </div>
                                     @if(Auth::user() && Auth::user()->user_type == 'Personal_Account')
                                         <div class="col-2 text-center align-self-center">
@@ -215,18 +245,28 @@
                                         </div>
                                     </div>
                                     <div class="col-7">
-                                        <h2 style="font-size: 1.5rem" class="pt-6 mt-3">{{ $job->title }}</h2>
-                                        <p class="pt-2"
+                                        <h1 style="font-size: 1.5rem" class="pt-6 mt-3">{{ $job->title }}</h1>
+                                        <i style="" class="pt-6 mt-1">Position: {{$job->position}} 
+                                            &nbsp;Category:
+                                            @foreach($categories as $cat)
+                                                @if($job->category_id==$cat->id)
+                                                    {{$cat->name}}
+                                                @endif
+                                            @endforeach
+                                        
+                                        </i>
+                                        <hr width="90%">
+                                        <p class="m-2"
                                            style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                         <br>
-                                          <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ &nbsp;<i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
-                                          <hr style="width: 90%">
-                                             @if($job->tags->count())
+                                        <p class="m-2"><i class='fas fa-location-arrow' style="color:#00b074"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ &nbsp;<i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}}&nbsp;<i class="fas fa-phone" style="color:#00b074;" aria-hidden="true"></i> {{$job->phone}} </p>
+                                                <hr style="width: 90%;">
+                                                @if($job->tags->count())
                                                 <strong>Tags:</strong>
-                                                 @foreach($job->tags as $tag)
-                                                  <label class="badge" style="background-color: #00b074">{{ $tag->name }}</label>
-                                                 @endforeach
-                                             @endif
+                                                @foreach($job->tags as $tag)
+                                                   <label class="badge" style="background-color: #00b074">{{ $tag->name }}</label>
+                                                @endforeach
+                                                @endif
                                         </div>
                                     @if(Auth::user() && Auth::user()->user_type == 'Personal_Account')
                                         <div class="col-2 text-center align-self-center">
@@ -267,18 +307,28 @@
                                         </div>
                                     </div>
                                     <div class="col-7">
-                                        <h2 style="font-size: 1.5rem" class="pt-6 mt-3">{{ $job->title }}</h2>
-                                        <p class="pt-2"
+                                        <h1 style="font-size: 1.5rem" class="pt-6 mt-3">{{ $job->title }}</h1>
+                                        <i style="" class="pt-6 mt-1">Position: {{$job->position}} 
+                                            &nbsp;Category:
+                                            @foreach($categories as $cat)
+                                                @if($job->category_id==$cat->id)
+                                                    {{$cat->name}}
+                                                @endif
+                                            @endforeach
+                                        
+                                        </i>
+                                        <hr width="90%">
+                                        <p class="m-2"
                                            style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                         <br>
-                                        <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ &nbsp;<i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
-                                        <hr style="width: 90%;">
-                                            @if($job->tags->count())
-                                                 <strong>Tags:</strong>
-                                                 @foreach($job->tags as $tag)
-                                                 <label class="badge" style="background-color: #00b074">{{ $tag->name }}</label>
-                                                 @endforeach
-                                             @endif
+                                        <p class="m-2"><i class='fas fa-location-arrow' style="color:#00b074"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ &nbsp;<i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}}&nbsp;<i class="fas fa-phone" style="color:#00b074;" aria-hidden="true"></i> {{$job->phone}} </p>
+                                                <hr style="width: 90%;">
+                                                @if($job->tags->count())
+                                                <strong>Tags:</strong>
+                                                @foreach($job->tags as $tag)
+                                                   <label class="badge" style="background-color: #00b074">{{ $tag->name }}</label>
+                                                @endforeach
+                                                @endif
                                     </div>
                                     @if(Auth::user() && Auth::user()->user_type == 'Personal_Account')
                                         <div class="col-2 text-center align-self-center">

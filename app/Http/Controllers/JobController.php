@@ -28,7 +28,8 @@ class JobController extends Controller
         $remote = Job::where('type', 'Remote')->get();
         $hybrid = Job::where('type', 'Hybrid')->get();
         $cityJobs = Job::where('city', $city)->get();
-        return view('jobs.index',['jobs' => $jobs, 'site' => $site, 'remote' => $remote, 'hybrid' => $hybrid, 'city' => $city, 'cityJobs'=> $cityJobs]);
+        $categories = Category::all();
+        return view('jobs.index',['jobs' => $jobs, 'site' => $site, 'remote' => $remote, 'hybrid' => $hybrid, 'city' => $city, 'cityJobs'=> $cityJobs, 'categories' =>$categories]);
     }
 
     public function myJobOffers()
