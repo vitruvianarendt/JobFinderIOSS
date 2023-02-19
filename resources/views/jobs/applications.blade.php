@@ -25,10 +25,10 @@
         <h1>Recruiter: {{$current_user->name}}</h1>
     </div>
     <div class="container-fluid p-2 shadow-lg" style="margin-top: 2%;width: 90%; margin-left: auto;margin-right:auto;">
-        
+
         <table id="mytable" class="table table-hover">
             <thead>
-                <th>Job Title</th> 
+                <th>Job Title</th>
                 <th>Job Description</th>
                 <th>Job Creation Date</th>
                 <th>Job Position</th>
@@ -58,7 +58,7 @@
                         <td>{{$d->email}}</td>
                         <td>{{$d->user_phonenr}}</td>
                         <td>{{ \Carbon\Carbon::parse($d->application_date)->format('d/m/Y')}}</td>
-                        <td><a href=""><i class="fa fa-download" aria-hidden="true"></i> Download</a></td>
+                        <td><a href="{{ URL::to('/pdf?user_cv=' . $d->user_id ) }}">Export to PDF<i class="fa fa-download" aria-hidden="true"></i> Download</a></td>
                         </tr>
                      @endif
                 @endforeach

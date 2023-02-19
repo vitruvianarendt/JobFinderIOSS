@@ -90,9 +90,13 @@ class CvController extends Controller
         return view('cv.preview', ['cv' => $cv]);
     }
 
-    public function createPDF(): Response
+    public function createPDF(Request $request): Response
     {
-        $userId = Auth()->id();
+        if($request->user_cv != null) {
+            $userId = $request->user_cv;
+        } else {
+            $userId = Auth()->id();
+        }
         $cv = Cv::where('user_id', $userId)->first();
         view()->share('cv',$cv);
         $pdf = PDF::loadView('cv.preview');
