@@ -55,8 +55,10 @@
                                 <div class="col-2 text-center align-self-center">
                                     @if($job->userHasApplied())
                                         <button class="px-4 py-3 text-white rounded" style="background-color: #305d4e" disabled>Applied</button>
-                                    @else
+                                    @elseif(($job->userHasCv()))
                                         <button type="submit" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
+                                    @else
+                                        <button class="px-4 py-3 text-white rounded" style="background-color: #00b074">Create CV</button>
                                     @endif
                                 </div>
                             @endif
@@ -113,7 +115,7 @@
                                         <p class="pt-2"
                                            style="display: block; max-width: 98%; ">{{$job->description}}</p>
                                         <br>
-                                        <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ &nbsp;<i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p> 
+                                        <p><i class='fas fa-location-arrow' style="color:#00b074; font-size: 1.3em;"></i> {{$job->city}} &nbsp;<i class="fa fa-money" style="color:#00b074" aria-hidden="true"></i> {{$job->salary}}€ &nbsp;<i class='far fa-calendar-alt' style="color:#00b074"></i> {{$job->created_at->diffForHumans()}} </p>
                                                 <hr style="width: 90%;">
                                                 @if($job->tags->count())
                                                 <strong>Tags:</strong>
@@ -126,8 +128,10 @@
                                         <div class="col-2 text-center align-self-center">
                                             @if($job->userHasApplied())
                                                 <button class="px-4 py-3 text-white rounded" style="background-color: #305d4e" disabled>Applied</button>
-                                            @else
+                                            @elseif(($job->userHasCv()))
                                                 <button type="submit" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
+                                            @else
+                                                <button class="px-4 py-3 text-white rounded" style="background-color: #00b074">Create CV</button>
                                             @endif
                                         </div>
                                     @endif
@@ -176,8 +180,10 @@
                                         <div class="col-2 text-center align-self-center">
                                             @if($job->userHasApplied())
                                                 <button class="px-4 py-3 text-white rounded" style="background-color: #305d4e" disabled>Applied</button>
-                                            @else
+                                            @elseif(($job->userHasCv()))
                                                 <button type="submit" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
+                                            @else
+                                                <button class="px-4 py-3 text-white rounded" style="background-color: #00b074">Create CV</button>
                                             @endif
                                         </div>
                                     @endif
@@ -226,8 +232,10 @@
                                         <div class="col-2 text-center align-self-center">
                                             @if($job->userHasApplied())
                                                 <button class="px-4 py-3 text-white rounded" style="background-color: #305d4e" disabled>Applied</button>
-                                            @else
+                                            @elseif(($job->userHasCv()))
                                                 <button type="submit" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
+                                            @else
+                                                <button class="px-4 py-3 text-white rounded" style="background-color: #00b074">Create CV</button>
                                             @endif
                                         </div>
                                     @endif
@@ -276,8 +284,10 @@
                                         <div class="col-2 text-center align-self-center">
                                             @if($job->userHasApplied())
                                                 <button class="px-4 py-3 text-white rounded" style="background-color: #305d4e" disabled>Applied</button>
-                                            @else
+                                            @elseif(($job->userHasCv()))
                                                 <button type="submit" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
+                                            @else
+                                                <button class="px-4 py-3 text-white rounded" style="background-color: #00b074">Create CV</button>
                                             @endif
                                         </div>
                                     @endif

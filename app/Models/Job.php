@@ -62,6 +62,15 @@ class Job extends Model
         return false;
     }
 
+    public function userHasCv(): bool
+    {
+        $hasCV = DB::table('cvs')->where('user_id',Auth::id())->get();
+        if(isset($hasCV) && $hasCV->count() != 0){
+            return true;
+        }
+        return false;
+    }
+
     use HasFactory;
     use \Conner\Tagging\Taggable;
 }
