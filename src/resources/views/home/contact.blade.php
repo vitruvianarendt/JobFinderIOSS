@@ -35,7 +35,7 @@
                                 <div class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch ">
                                     <div class="contact-wrap w-100 p-md-5 p-4">
                                         <h1 class="mb-4">Contact Us</h1>
-                                        <form method="POST" id="contactForm" name="contactForm" class="contactForm"
+                                        <form id="contactForm" name="contactForm" class="contactForm"
                                               action="">
                                             <div class="form-floating mb-3">
                                                 <input name="contactName" type="text" class="form-control shadow-sm"
@@ -52,10 +52,10 @@
                                                           id="contactFeedbackid"></textarea>
                                                 <label for="contactFeedbackid">Your feedback</label>
                                             </div>
-                                            <button class="btn text-white" style="background-color: #00B074;"
-                                                    href="{{ route('landing') }}">Create
-                                            </button>
                                         </form>
+                                        <a class="btn text-white" style="background-color: #00B074;"
+                                                href="{{ route('landing') }}">Create
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-5 d-flex align-items-stretch">

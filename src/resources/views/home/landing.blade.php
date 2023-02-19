@@ -6,9 +6,13 @@
             <div class="container">
                 <div class="row justify-content-start text-white">
                     <div class="col-4" style="margin-top: 18%">
+                        @if(Auth::user() && Auth::user()->user_type == 'Personal_Account')
                         <a href="/jobs" class="btn py-md-3 px-md-5 me-3 mb-5 text-white" style="background-color: #00b074">Search A Job</a>
-                        <br>
-                        <a href="findtalent" class="btn btn-secondary py-md-3 px-md-5 mb-5">Find A Talent</a>
+                        @endif
+                        @if(Auth::user() && Auth::user()->user_type == 'Recruiter')
+                            <br>
+                        <a href="/findtalent" class="btn btn-secondary py-md-3 px-md-5 mb-5">Find A Talent</a>
+                        @endif
                     </div>
                     <div class="col-8">
                         <svg baseprofile="tiny" style="padding: 0px; touch-action: none;" stroke-linecap="round" stroke-linejoin="round" version="1.2" viewbox="0 0 1000 791" xmlns="http://www.w3.org/2000/svg">
