@@ -58,7 +58,7 @@
                                     @elseif(($job->userHasCv()))
                                         <button type="submit" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
                                     @else
-                                        <button class="px-4 py-3 text-white rounded" style="background-color: #00b074">Create CV</button>
+                                        <a href="{{ route('resume') }}" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Create CV</a>
                                     @endif
                                 </div>
                             @endif
@@ -131,7 +131,7 @@
                                             @elseif(($job->userHasCv()))
                                                 <button type="submit" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
                                             @else
-                                                <button class="px-4 py-3 text-white rounded" style="background-color: #00b074">Create CV</button>
+                                                <a href="{{ route('resume') }}" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Create CV</a>
                                             @endif
                                         </div>
                                     @endif
@@ -183,7 +183,7 @@
                                             @elseif(($job->userHasCv()))
                                                 <button type="submit" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
                                             @else
-                                                <button class="px-4 py-3 text-white rounded" style="background-color: #00b074">Create CV</button>
+                                                <a href="{{ route('resume') }}" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Create CV</a>
                                             @endif
                                         </div>
                                     @endif
@@ -235,7 +235,7 @@
                                             @elseif(($job->userHasCv()))
                                                 <button type="submit" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
                                             @else
-                                                <button class="px-4 py-3 text-white rounded" style="background-color: #00b074">Create CV</button>
+                                                <a href="{{ route('resume') }}" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Create CV</a>
                                             @endif
                                         </div>
                                     @endif
@@ -287,7 +287,7 @@
                                             @elseif(($job->userHasCv()))
                                                 <button type="submit" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Apply Now</button>
                                             @else
-                                                <button class="px-4 py-3 text-white rounded" style="background-color: #00b074">Create CV</button>
+                                                <a href="{{ route('resume') }}" class="px-4 py-3 text-white rounded" style="background-color: #00b074">Create CV</a>
                                             @endif
                                         </div>
                                     @endif
